@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { unstable_ClassNameGenerator as ClassNameGenerator } from '@mui/material/className';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+// No need for module declaration as we're using CustomGrid component
+
+// Ensure custom element IDs use prefix for CSS class names
+ClassNameGenerator.configure((componentName) => `dentsmile-${componentName}`);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
