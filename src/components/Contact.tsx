@@ -10,58 +10,58 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  useTheme
+  useTheme,
+  Divider,
+  InputAdornment
 } from '@mui/material';
 import Grid from './CustomGrid';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Contact: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box sx={{ py: 10, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+        <Box sx={{ textAlign: 'center', mb: 2 }}>
           <Typography 
             variant="h6" 
             component="p" 
             color="primary" 
-            fontWeight={600} 
-            sx={{ mb: 1 }}
+            sx={{ mb: 2, letterSpacing: 3, textTransform: 'uppercase' }}
           >
-            CONTACT US
+            Reach Out
           </Typography>
           <Typography 
             variant="h3" 
             component="h2" 
-            fontWeight={700} 
-            sx={{ mb: 2 }}
+            fontWeight={300} 
+            sx={{ mb: 3 }}
           >
-            Get In Touch
+            Contact Us
           </Typography>
-          <Typography 
-            variant="body1" 
-            color="text.secondary" 
-            sx={{ maxWidth: '700px', mx: 'auto' }}
-          >
-            Have any questions or want to schedule an appointment? Reach out to our friendly team.
-          </Typography>
+          <Divider sx={{ width: '40px', borderColor: theme.palette.primary.main, borderWidth: 2, mx: 'auto', mb: 6 }}/>
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
           {/* Contact Form */}
-          <Paper sx={{ flex: 1, p: 4, borderRadius: 2 }} elevation={2}>
-            <Typography variant="h5" component="h3" fontWeight={600} gutterBottom>
-              Send Us a Message
+          <Paper sx={{ flex: 1, p: 5, border: `1px solid ${theme.palette.grey[200]}` }} elevation={0}>
+            <Typography variant="h5" component="h3" fontWeight={400} sx={{ mb: 3 }}>
+              Get In Touch
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Fill out the form below and we'll get back to you as soon as possible.
+              Have a question or ready to schedule your appointment? Send us a message, and our team will get back to you promptly.
             </Typography>
             
-            <Box component="form" noValidate sx={{ mt: 3 }}>
+            <Box component="form" noValidate sx={{ mt: 4 }}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -70,6 +70,13 @@ const Contact: React.FC = () => {
                     label="Full Name"
                     name="name"
                     variant="outlined"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <PersonOutlineOutlinedIcon fontSize="small" />
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -79,6 +86,13 @@ const Contact: React.FC = () => {
                     label="Phone Number"
                     name="phone"
                     variant="outlined"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <PhoneIphoneOutlinedIcon fontSize="small" />
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -89,6 +103,13 @@ const Contact: React.FC = () => {
                     name="email"
                     type="email"
                     variant="outlined"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <AlternateEmailIcon fontSize="small" />
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -102,13 +123,20 @@ const Contact: React.FC = () => {
                     SelectProps={{
                       native: true,
                     }}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <EventNoteOutlinedIcon fontSize="small" />
+                        </InputAdornment>
+                      ),
+                    }}
                   >
                     <option value="">Select a service</option>
-                    <option value="routine">Routine Cleaning</option>
-                    <option value="braces">Dental Braces</option>
-                    <option value="cosmetic">Cosmetic Dentistry</option>
                     <option value="preventive">Preventive Care</option>
-                    <option value="makeover">Smile Makeover</option>
+                    <option value="cosmetic">Cosmetic Dentistry</option>
+                    <option value="alignment">Dental Alignment</option>
+                    <option value="restorative">Restorative Care</option>
+                    <option value="hygiene">Hygiene Treatments</option>
                     <option value="pediatric">Pediatric Dentistry</option>
                   </TextField>
                 </Grid>
@@ -129,7 +157,7 @@ const Contact: React.FC = () => {
                     variant="contained"
                     color="primary"
                     size="large"
-                    sx={{ py: 1.5 }}
+                    endIcon={<ArrowForwardIcon />}
                   >
                     Send Message
                   </Button>
@@ -142,67 +170,67 @@ const Contact: React.FC = () => {
           <Paper 
             sx={{ 
               width: { xs: '100%', md: '400px' }, 
-              p: 4, 
-              borderRadius: 2,
-              background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
-              color: 'white',
+              p: 5,
+              bgcolor: theme.palette.background.default,
+              border: `1px solid ${theme.palette.grey[200]}`,
+              color: theme.palette.text.primary,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between'
             }} 
-            elevation={3}
+            elevation={0}
           >
             <Box>
-              <Typography variant="h5" component="h3" fontWeight={600} gutterBottom>
+              <Typography variant="h5" component="h3" fontWeight={400} sx={{ mb: 3 }}>
                 Contact Information
               </Typography>
-              <Typography variant="body2" paragraph sx={{ opacity: 0.9 }}>
-                Reach out to us through any of these channels:
+              <Typography variant="body2" paragraph sx={{ color: theme.palette.text.secondary, mb: 4 }}>
+                You can reach us through any of these channels or visit our office during business hours.
               </Typography>
               
               <List sx={{ mt: 3 }}>
-                <ListItem sx={{ px: 0, py: 1.5 }}>
-                  <ListItemIcon sx={{ color: 'white', minWidth: '40px' }}>
-                    <LocationOnIcon />
+                <ListItem sx={{ px: 0, py: 2 }}>
+                  <ListItemIcon sx={{ color: theme.palette.primary.main, minWidth: '40px' }}>
+                    <LocationOnOutlinedIcon />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Clinic Address" 
+                    primary="Address" 
                     secondary="123 Dental Street, Suite 456, City, State 78901"
-                    primaryTypographyProps={{ fontWeight: 600 }}
-                    secondaryTypographyProps={{ color: 'white', sx: { opacity: 0.8 } }}
+                    primaryTypographyProps={{ fontWeight: 500, fontSize: '0.9rem' }}
+                    secondaryTypographyProps={{ color: theme.palette.text.secondary, sx: { mt: 0.5 } }}
                   />
                 </ListItem>
-                <ListItem sx={{ px: 0, py: 1.5 }}>
-                  <ListItemIcon sx={{ color: 'white', minWidth: '40px' }}>
-                    <PhoneIcon />
+                <ListItem sx={{ px: 0, py: 2 }}>
+                  <ListItemIcon sx={{ color: theme.palette.primary.main, minWidth: '40px' }}>
+                    <PhoneOutlinedIcon />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Phone Number" 
+                    primary="Phone" 
                     secondary="(123) 456-7890"
-                    primaryTypographyProps={{ fontWeight: 600 }}
-                    secondaryTypographyProps={{ color: 'white', sx: { opacity: 0.8 } }}
+                    primaryTypographyProps={{ fontWeight: 500, fontSize: '0.9rem' }}
+                    secondaryTypographyProps={{ color: theme.palette.text.secondary, sx: { mt: 0.5 } }}
                   />
                 </ListItem>
-                <ListItem sx={{ px: 0, py: 1.5 }}>
-                  <ListItemIcon sx={{ color: 'white', minWidth: '40px' }}>
-                    <EmailIcon />
+                <ListItem sx={{ px: 0, py: 2 }}>
+                  <ListItemIcon sx={{ color: theme.palette.primary.main, minWidth: '40px' }}>
+                    <EmailOutlinedIcon />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Email Address" 
+                    primary="Email" 
                     secondary="info@dentsmile.com"
-                    primaryTypographyProps={{ fontWeight: 600 }}
-                    secondaryTypographyProps={{ color: 'white', sx: { opacity: 0.8 } }}
+                    primaryTypographyProps={{ fontWeight: 500, fontSize: '0.9rem' }}
+                    secondaryTypographyProps={{ color: theme.palette.text.secondary, sx: { mt: 0.5 } }}
                   />
                 </ListItem>
-                <ListItem sx={{ px: 0, py: 1.5 }}>
-                  <ListItemIcon sx={{ color: 'white', minWidth: '40px' }}>
-                    <AccessTimeIcon />
+                <ListItem sx={{ px: 0, py: 2 }}>
+                  <ListItemIcon sx={{ color: theme.palette.primary.main, minWidth: '40px' }}>
+                    <AccessTimeOutlinedIcon />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Opening Hours" 
+                    primary="Hours" 
                     secondary="Mon-Fri: 8am-6pm | Sat: 9am-2pm | Sun: Closed"
-                    primaryTypographyProps={{ fontWeight: 600 }}
-                    secondaryTypographyProps={{ color: 'white', sx: { opacity: 0.8 } }}
+                    primaryTypographyProps={{ fontWeight: 500, fontSize: '0.9rem' }}
+                    secondaryTypographyProps={{ color: theme.palette.text.secondary, sx: { mt: 0.5 } }}
                   />
                 </ListItem>
               </List>

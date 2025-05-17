@@ -7,7 +7,8 @@ import {
   CardContent, 
   Avatar, 
   Rating,
-  useTheme
+  useTheme,
+  Divider
 } from '@mui/material';
 import Grid from './CustomGrid';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
@@ -19,21 +20,24 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'Patient for 3 years',
     rating: 5,
-    quote: "I've been coming to this clinic for 3 years now, and I've always had a great experience. The staff is friendly, and Dr. Miller is incredibly skilled and gentle. My smile has never looked better!",
+    quote: "I've been coming to this clinic for 3 years, and the experience has always been exceptional. Dr. Miller is incredibly skilled, attentive, and gentle. My smile has never looked better.",
+    initials: "SJ"
   },
   {
     id: 2,
     name: 'Michael Thompson',
     role: 'New Patient',
     rating: 5,
-    quote: "As someone with dental anxiety, I was nervous about my first visit. The team here made me feel comfortable and explained everything clearly. The modern facilities and painless procedures were impressive!",
+    quote: "As someone with dental anxiety, I was nervous about my first appointment. The team made me feel comfortable and explained every procedure clearly. The modern facilities and painless care were impressive.",
+    initials: "MT"
   },
   {
     id: 3,
     name: 'Jennifer Williams',
     role: 'Patient for 5+ years',
     rating: 5,
-    quote: "My children and I have been patients for years. The care we receive is exceptional, and the pediatric dentistry services are wonderful. The kids actually look forward to their dental visits now!",
+    quote: "My children and I have been patients for years. Their pediatric services are exceptional, and the staff has a wonderful way with kids. My children actually look forward to their dental visits now.",
+    initials: "JW"
   },
 ];
 
@@ -41,33 +45,26 @@ const Testimonials: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ py: 8, bgcolor: theme.palette.grey[50] }}>
+    <Box sx={{ py: 10, bgcolor: theme.palette.grey[50] }}>
       <Container maxWidth="xl">
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+        <Box sx={{ textAlign: 'center', mb: 2 }}>
           <Typography 
             variant="h6" 
             component="p" 
             color="primary" 
-            fontWeight={600} 
-            sx={{ mb: 1 }}
+            sx={{ mb: 2, letterSpacing: 3, textTransform: 'uppercase' }}
           >
-            TESTIMONIALS
+            Client Stories
           </Typography>
           <Typography 
             variant="h3" 
             component="h2" 
-            fontWeight={700} 
-            sx={{ mb: 2 }}
+            fontWeight={300} 
+            sx={{ mb: 3 }}
           >
             What Our Patients Say
           </Typography>
-          <Typography 
-            variant="body1" 
-            color="text.secondary" 
-            sx={{ maxWidth: '700px', mx: 'auto' }}
-          >
-            Don't just take our word for it. Hear what our patients have to say about their experiences.
-          </Typography>
+          <Divider sx={{ width: '40px', borderColor: theme.palette.primary.main, borderWidth: 2, mx: 'auto', mb: 6 }}/>
         </Box>
 
         <Grid container spacing={4}>
@@ -79,48 +76,69 @@ const Testimonials: React.FC = () => {
                   display: 'flex', 
                   flexDirection: 'column',
                   position: 'relative',
-                  p: 2,
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '4px',
-                    height: '40%',
-                    backgroundColor: theme.palette.primary.main,
-                    borderTopLeftRadius: theme.shape.borderRadius,
+                  overflow: 'visible',
+                  backgroundColor: 'background.paper',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
                   }
                 }}
-                elevation={2}
               >
-                <Box sx={{ position: 'absolute', top: 20, right: 20, color: theme.palette.primary.light, opacity: 0.3 }}>
-                  <FormatQuoteIcon sx={{ fontSize: 60 }} />
+                <Box 
+                  sx={{ 
+                    width: 60, 
+                    height: 60, 
+                    position: 'absolute', 
+                    top: -20, 
+                    left: 30, 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: theme.palette.background.paper,
+                    border: `1px solid ${theme.palette.grey[200]}`,
+                    color: theme.palette.primary.main
+                  }}
+                >
+                  <FormatQuoteIcon />
                 </Box>
                 
-                <CardContent sx={{ flexGrow: 1, position: 'relative', zIndex: 1 }}>
-                  <Rating value={testimonial.rating} readOnly precision={0.5} sx={{ mb: 2 }} />
+                <CardContent sx={{ pt: 5, px: 4, pb: 4, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                  <Box sx={{ mb: 3, mt: 2 }}>
+                    <Rating value={testimonial.rating} readOnly precision={0.5} sx={{ color: theme.palette.primary.main }} />
+                  </Box>
                   
-                  <Typography variant="body1" paragraph sx={{ fontStyle: 'italic', mb: 3 }}>
+                  <Typography 
+                    variant="body1" 
+                    sx={{ 
+                      mb: 4, 
+                      fontStyle: 'italic', 
+                      lineHeight: 1.8,
+                      color: theme.palette.text.secondary,
+                      flexGrow: 1
+                    }}
+                  >
                     "{testimonial.quote}"
                   </Typography>
                   
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mt: 'auto' }}>
                     <Avatar 
                       sx={{ 
-                        width: 56, 
-                        height: 56,
-                        bgcolor: theme.palette.primary.main,
-                        border: `2px solid ${theme.palette.primary.main}`,
-                        mr: 2
+                        width: 50, 
+                        height: 50,
+                        border: `1px solid ${theme.palette.grey[200]}`,
+                        bgcolor: theme.palette.background.default,
+                        color: theme.palette.text.primary,
+                        mr: 2,
+                        fontWeight: 300
                       }}
                     >
-                      {testimonial.name.charAt(0)}
+                      {testimonial.initials}
                     </Avatar>
                     <Box>
-                      <Typography variant="h6" component="p" fontWeight={600}>
+                      <Typography variant="subtitle1" component="p" fontWeight={500}>
                         {testimonial.name}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography variant="caption" color="text.secondary">
                         {testimonial.role}
                       </Typography>
                     </Box>
