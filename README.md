@@ -21,6 +21,37 @@ Website para a Clínica Naturalize, desenvolvido com Next.js, Material UI e Fram
 - Arquitetura de React Server Components
 - Compatível com SEO
 
+## Novos CTAs e motivos
+
+Para aumentar as taxas de conversão sem comprometer o design minimalista, adicionamos CTAs estratégicos:
+
+1. **Hero com botão secundário**
+   - Permite que visitantes explorem serviços antes de agendar, reduzindo fricção
+   - Scroll suave mantém o usuário engajado sem sair da página
+
+2. **Botões nos cards de serviços**
+   - CTAs específicos por tipo de tratamento aumentam relevância
+   - Diálogo de estética mostra benefícios visuais imediatos
+   - Ação de WhatsApp encurta o caminho para conversão em implantes
+
+3. **Link no About**
+   - Aproveita o momento de conexão emocional após leitura da missão
+   - WhatsApp oferece contato imediato e informal
+
+4. **Botão em Testimonials**
+   - Capitaliza na prova social com chamada para resultados
+   - Cria expectativa para expansão futura do site
+
+5. **CTA flutuante mobile**
+   - Garante que a ação principal (agendar) esteja sempre visível
+   - Específico para experiência mobile sem poluir desktop
+
+Todos os CTAs mantêm a estética minimalista com:
+- Transições suaves (≤ 400ms)
+- Contraste adequado para acessibilidade
+- Carregamento dinâmico para não afetar performance
+- Conformidade com separação server/client
+
 ## Arquitetura
 
 Este projeto utiliza uma arquitetura moderna baseada em React Server Components, separando claramente componentes de servidor e cliente:
@@ -40,6 +71,8 @@ Componentes que precisam de interatividade, estado ou efeitos do navegador são 
 - `ClientHeroAnimation.tsx` (para animações)
 - `ContactForm.tsx` (formulário interativo)
 - `Testimonials.tsx` (carrossel)
+- `cta/EsteticaDialog.tsx` (diálogo de tratamentos estéticos)
+- `cta/StickyMobileCTA.tsx` (CTA flutuante para mobile)
 
 ### Server Actions
 As ações do formulário são processadas no servidor usando React Server Actions:
@@ -49,6 +82,7 @@ As ações do formulário são processadas no servidor usando React Server Actio
 
 - `/src/app`: Roteamento e layout principal
 - `/src/components`: Componentes modulares
+- `/src/components/cta`: Componentes de Call-to-Action
 - `/src/theme.ts`: Configuração de tema e cores com CSS Variables
 - `/src/app/contact/actions.ts`: Server Action para processamento de formulário
 

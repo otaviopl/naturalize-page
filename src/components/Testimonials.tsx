@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Box, Card, CardContent, Container, Typography, Avatar } from '@mui/material';
-import { Quote } from 'lucide-react';
+import { Box, Card, CardContent, Container, Typography, Avatar, Button } from '@mui/material';
+import { Quote, ArrowRight } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 // Dynamically import Framer Motion components
 const MotionDiv = dynamic(
@@ -56,6 +57,7 @@ export default function Testimonials() {
       sx={{
         py: { xs: 8, md: 12 },
         backgroundColor: '#fff',
+        position: 'relative',
       }}
     >
       <Container maxWidth="lg">
@@ -169,6 +171,30 @@ export default function Testimonials() {
               }}
             />
           ))}
+        </Box>
+        
+        <Box sx={{ position: 'absolute', bottom: 24, right: 24, zIndex: 10 }}>
+          <Link href="/resultados" passHref>
+            <Button
+              variant="outlined"
+              color="secondary"
+              size="small"
+              endIcon={<ArrowRight size={16} />}
+              aria-label="Veja antes e depois"
+              sx={{
+                fontWeight: 500,
+                borderWidth: 2,
+                px: 2,
+                py: 0.75,
+                '&:hover': {
+                  borderWidth: 2,
+                  backgroundColor: 'rgba(209, 183, 143, 0.1)',
+                }
+              }}
+            >
+              Veja antes e depois
+            </Button>
+          </Link>
         </Box>
       </Container>
     </Box>

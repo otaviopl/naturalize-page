@@ -1,15 +1,22 @@
 "use client";
 
-import { Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
 export default function ClientHeroAnimation() {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
       >
         <Typography
           variant="h1"
@@ -28,7 +35,7 @@ export default function ClientHeroAnimation() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
       >
         <Typography
           variant="h5"
@@ -48,28 +55,54 @@ export default function ClientHeroAnimation() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
       >
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          href="#contato"
-          aria-label="Agendar sua avaliação"
-          sx={{
-            fontWeight: 600,
-            py: 1.5,
-            px: 4,
-            boxShadow: '0 4px 14px rgba(209, 183, 143, 0.4)',
-            transition: 'all 0.3s ease',
-            '&:hover': {
-              transform: 'translateY(-3px)',
-              boxShadow: '0 8px 25px rgba(209, 183, 143, 0.5)',
-            },
-          }}
-        >
-          Agendar sua avaliação
-        </Button>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href="#contato"
+            aria-label="Agendar sua avaliação"
+            sx={{
+              fontWeight: 600,
+              py: 1.5,
+              px: 4,
+              boxShadow: '0 4px 14px rgba(209, 183, 143, 0.4)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-3px)',
+                boxShadow: '0 8px 25px rgba(209, 183, 143, 0.5)',
+              },
+            }}
+          >
+            Agendar sua avaliação
+          </Button>
+          
+          <Button
+            variant="outlined"
+            color="secondary"
+            size="large"
+            onClick={() => scrollToSection('servicos')}
+            aria-label="Conheça nossos tratamentos"
+            sx={{
+              fontWeight: 600,
+              py: 1.5,
+              px: 4,
+              borderWidth: 2,
+              color: 'secondary.main',
+              borderColor: 'secondary.main',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                borderWidth: 2,
+                transform: 'translateY(-3px)',
+                backgroundColor: 'rgba(209, 183, 143, 0.1)',
+              },
+            }}
+          >
+            Conheça nossos tratamentos
+          </Button>
+        </Box>
       </motion.div>
     </>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 
 export default function About() {
@@ -51,7 +51,24 @@ export default function About() {
                 }}
               >
                 A Clínica Naturalize inicia seus atendimentos com uma proposta que vai além da estética: 
-                queremos transformar a forma como você se cuida, sente e sorri.
+                queremos transformar a forma como você se cuida, sente e sorri.{' '}
+                <Link 
+                  href="https://wa.me/5516999999999" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Fale agora no WhatsApp"
+                  sx={{
+                    color: 'secondary.main',
+                    textDecoration: 'underline',
+                    fontWeight: 500,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      color: 'secondary.dark',
+                    }
+                  }}
+                >
+                  Fale agora no WhatsApp
+                </Link>
               </Typography>
             </motion.div>
           </Grid>
