@@ -1,156 +1,161 @@
-import React from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Card, 
-  CardContent, 
-  Avatar, 
-  Rating,
-  useTheme,
-  Divider
-} from '@mui/material';
-import Grid from './CustomGrid';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+"use client";
 
-// Testimonial data
+import { useState, useEffect } from 'react';
+import { Box, Card, CardContent, Container, Typography, Avatar } from '@mui/material';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Quote } from 'lucide-react';
+
 const testimonials = [
   {
-    id: 1,
-    name: 'Sarah Johnson',
-    role: 'Patient for 3 years',
-    rating: 5,
-    quote: "I've been coming to this clinic for 3 years, and the experience has always been exceptional. Dr. Miller is incredibly skilled, attentive, and gentle. My smile has never looked better.",
-    initials: "SJ"
+    name: 'Ana Paula',
+    role: 'Paciente de Ortodontia',
+    text: 'Estou encantada com os resultados do meu tratamento ortodôntico. A equipe da Naturalize é extremamente atenciosa e o ambiente da clínica transmite conforto e segurança.',
+    avatar: 'AP',
   },
   {
-    id: 2,
-    name: 'Michael Thompson',
-    role: 'New Patient',
-    rating: 5,
-    quote: "As someone with dental anxiety, I was nervous about my first appointment. The team made me feel comfortable and explained every procedure clearly. The modern facilities and painless care were impressive.",
-    initials: "MT"
+    name: 'Marcos Silva',
+    role: 'Paciente de Implante',
+    text: 'Realizar implantes na Clínica Naturalize foi a melhor decisão. Procedimento indolor e recuperação rápida. Agora posso sorrir com confiança novamente.',
+    avatar: 'MS',
   },
   {
-    id: 3,
-    name: 'Jennifer Williams',
-    role: 'Patient for 5+ years',
-    rating: 5,
-    quote: "My children and I have been patients for years. Their pediatric services are exceptional, and the staff has a wonderful way with kids. My children actually look forward to their dental visits now.",
-    initials: "JW"
+    name: 'Carla Mendes',
+    role: 'Tratamento Estético',
+    text: 'Os tratamentos estéticos da Naturalize superaram todas as minhas expectativas. Resultados naturais e duradouros. A equipe entendeu exatamente o que eu procurava.',
+    avatar: 'CM',
   },
 ];
 
-const Testimonials: React.FC = () => {
-  const theme = useTheme();
+export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <Box sx={{ py: 10, bgcolor: theme.palette.grey[50] }}>
-      <Container maxWidth="xl">
-        <Box sx={{ textAlign: 'center', mb: 2 }}>
-          <Typography 
-            variant="h6" 
-            component="p" 
-            color="primary" 
-            sx={{ mb: 2, letterSpacing: 3, textTransform: 'uppercase' }}
+    <Box
+      component="section"
+      id="depoimentos"
+      sx={{
+        py: { xs: 8, md: 12 },
+        backgroundColor: '#fff',
+      }}
+    >
+      <Container maxWidth="lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="h2"
+            align="center"
+            className="gold-gradient-text"
+            sx={{
+              fontSize: { xs: '2rem', md: '3rem' },
+              fontWeight: 700,
+              mb: { xs: 4, md: 6 },
+            }}
           >
-            Client Stories
+            Depoimentos
           </Typography>
-          <Typography 
-            variant="h3" 
-            component="h2" 
-            fontWeight={300} 
-            sx={{ mb: 3 }}
-          >
-            What Our Patients Say
-          </Typography>
-          <Divider sx={{ width: '40px', borderColor: theme.palette.primary.main, borderWidth: 2, mx: 'auto', mb: 6 }}/>
-        </Box>
+        </motion.div>
 
-        <Grid container spacing={4}>
-          {testimonials.map((testimonial) => (
-            <Grid item xs={12} md={4} key={testimonial.id}>
-              <Card 
-                sx={{ 
-                  height: '100%', 
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  position: 'relative',
-                  overflow: 'visible',
-                  backgroundColor: 'background.paper',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                  }
+        <Box
+          sx={{
+            position: 'relative',
+            height: { xs: '320px', md: '280px' },
+            overflow: 'hidden',
+          }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              style={{ position: 'absolute', width: '100%' }}
+            >
+              <Card
+                elevation={0}
+                sx={{
+                  maxWidth: '800px',
+                  mx: 'auto',
+                  borderRadius: 2,
+                  border: '1px solid rgba(209, 183, 143, 0.3)',
+                  backgroundColor: 'rgba(15, 26, 51, 0.02)',
                 }}
               >
-                <Box 
-                  sx={{ 
-                    width: 60, 
-                    height: 60, 
-                    position: 'absolute', 
-                    top: -20, 
-                    left: 30, 
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: theme.palette.background.paper,
-                    border: `1px solid ${theme.palette.grey[200]}`,
-                    color: theme.palette.primary.main
-                  }}
-                >
-                  <FormatQuoteIcon />
-                </Box>
-                
-                <CardContent sx={{ pt: 5, px: 4, pb: 4, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <Box sx={{ mb: 3, mt: 2 }}>
-                    <Rating value={testimonial.rating} readOnly precision={0.5} sx={{ color: theme.palette.primary.main }} />
-                  </Box>
-                  
-                  <Typography 
-                    variant="body1" 
-                    sx={{ 
-                      mb: 4, 
-                      fontStyle: 'italic', 
-                      lineHeight: 1.8,
-                      color: theme.palette.text.secondary,
-                      flexGrow: 1
+                <CardContent sx={{ p: { xs: 3, md: 5 } }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      mb: 3,
                     }}
                   >
-                    "{testimonial.quote}"
-                  </Typography>
-                  
-                  <Box sx={{ display: 'flex', alignItems: 'center', mt: 'auto' }}>
-                    <Avatar 
-                      sx={{ 
-                        width: 50, 
-                        height: 50,
-                        border: `1px solid ${theme.palette.grey[200]}`,
-                        bgcolor: theme.palette.background.default,
-                        color: theme.palette.text.primary,
+                    <Avatar
+                      sx={{
+                        bgcolor: 'secondary.main',
+                        color: 'primary.main',
                         mr: 2,
-                        fontWeight: 300
                       }}
                     >
-                      {testimonial.initials}
+                      {testimonials[currentIndex].avatar}
                     </Avatar>
                     <Box>
-                      <Typography variant="subtitle1" component="p" fontWeight={500}>
-                        {testimonial.name}
+                      <Typography variant="h6" component="h3" sx={{ fontWeight: 600 }}>
+                        {testimonials[currentIndex].name}
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
-                        {testimonial.role}
+                      <Typography variant="body2" color="text.secondary">
+                        {testimonials[currentIndex].role}
                       </Typography>
                     </Box>
+                    <Quote
+                      size={32}
+                      color="#d1b78f"
+                      style={{ marginLeft: 'auto' }}
+                    />
                   </Box>
+                  <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
+                    "{testimonials[currentIndex].text}"
+                  </Typography>
                 </CardContent>
               </Card>
-            </Grid>
+            </motion.div>
+          </AnimatePresence>
+        </Box>
+
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            mt: 4,
+          }}
+        >
+          {testimonials.map((_, index) => (
+            <Box
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              sx={{
+                width: 12,
+                height: 12,
+                mx: 1,
+                borderRadius: '50%',
+                backgroundColor: index === currentIndex ? 'secondary.main' : 'rgba(209, 183, 143, 0.3)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }}
+            />
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );
-};
-
-export default Testimonials; 
+} 

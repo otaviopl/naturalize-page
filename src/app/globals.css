@@ -1,0 +1,41 @@
+:root {
+  --navy-main: #0f1a33;
+  --navy-dark: #0b1429;
+  --gold: #d1b78f;
+  --gold-shadow: #8c7353;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--navy-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-shadow) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Smooth animations */
+.framer-motion-section {
+  will-change: transform, opacity;
+} 

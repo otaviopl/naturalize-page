@@ -1,146 +1,58 @@
-import React, { useState } from 'react';
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  Box, 
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  useMediaQuery,
-  useTheme
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+"use client";
 
-const pages = ['Home', 'Services', 'About Us', 'Doctors', 'Testimonials', 'Contact'];
+import { AppBar, Box, Button, Container, Toolbar } from '@mui/material';
+import { motion } from 'framer-motion';
+import Logo from './Logo';
 
-const Header: React.FC = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
+export default function Header() {
   return (
-    <AppBar position="fixed" color="secondary" elevation={0} sx={{ borderBottom: `1px solid ${theme.palette.grey[200]}` }}>
+    <AppBar
+      position="fixed"
+      color="transparent"
+      elevation={0}
+      sx={{
+        backdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(11, 20, 41, 0.8)',
+        borderBottom: '1px solid rgba(209, 183, 143, 0.2)',
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ py: 1 }}>
-          {/* Logo */}
-          <Typography
-            variant="h5"
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-              textDecoration: 'none',
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            DENT<span style={{ color: theme.palette.text.primary }}>SMILE</span>
-          </Typography>
-
-          {/* Mobile menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="menu"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <Logo />
+          </motion.div>
+          
+          <Box sx={{ flexGrow: 1 }} />
+          
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              href="#contato"
+              aria-label="Agendar avaliação"
               sx={{
-                display: { xs: 'block', md: 'none' },
+                fontWeight: 600,
+                boxShadow: '0 4px 14px rgba(209, 183, 143, 0.3)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-3px)',
+                  boxShadow: '0 6px 20px rgba(209, 183, 143, 0.4)',
+                },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          {/* Mobile logo */}
-          <Typography
-            variant="h5"
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontWeight: 700,
-              color: theme.palette.primary.main,
-              textDecoration: 'none',
-            }}
-          >
-            DENT<span style={{ color: theme.palette.text.primary }}>SMILE</span>
-          </Typography>
-
-          {/* Desktop menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'text.primary', display: 'block', mx: 1 }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          {/* Contact button */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Button 
-              variant="contained" 
-              color="primary" 
-              startIcon={<LocalPhoneIcon />}
-              sx={{ 
-                display: { xs: 'none', md: 'flex' },
-                fontWeight: 600
-              }}
-            >
-              Book Appointment
+              Agendar avaliação
             </Button>
-            {isMobile && (
-              <IconButton color="primary" aria-label="call us">
-                <LocalPhoneIcon />
-              </IconButton>
-            )}
-          </Box>
+          </motion.div>
         </Toolbar>
       </Container>
     </AppBar>
   );
-};
-
-export default Header; 
+} 

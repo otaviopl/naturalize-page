@@ -1,183 +1,108 @@
-import React from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Card, 
-  CardContent, 
-  Button,
-  useTheme,
-  alpha,
-  Divider
-} from '@mui/material';
-import Grid from './CustomGrid';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
-import ClearIcon from '@mui/icons-material/Clear';
-import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
-import ChildCareIcon from '@mui/icons-material/ChildCare';
+"use client";
 
-// Service data with icons
-const services = [
+import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import { Sparkles, Smile, Stethoscope } from 'lucide-react';
+
+const serviceItems = [
   {
-    id: 1,
-    title: 'Preventive Care',
-    description: 'Regular examinations and professional cleanings to maintain optimal oral health and prevent dental problems.',
-    icon: <HealthAndSafetyIcon fontSize="medium" />,
+    icon: <Sparkles size={48} color="#d1b78f" />,
+    title: 'Estética',
+    description: 'Procedimentos avançados de estética facial e dental, utilizando as técnicas mais modernas e materiais de alta qualidade para realçar sua beleza natural.',
   },
   {
-    id: 2,
-    title: 'Cosmetic Dentistry',
-    description: 'Enhance your smile with teeth whitening, veneers, and other aesthetic procedures tailored to your needs.',
-    icon: <FaceRetouchingNaturalIcon fontSize="medium" />,
+    icon: <Smile size={48} color="#d1b78f" />,
+    title: 'Ortodontia',
+    description: 'Tratamentos ortodônticos personalizados para todas as idades, com opções que vão desde aparelhos convencionais até alinhadores transparentes discretos.',
   },
   {
-    id: 3,
-    title: 'Dental Alignment',
-    description: 'Discreet orthodontic options including clear aligners to straighten teeth and improve your smile.',
-    icon: <ClearIcon fontSize="medium" />,
-  },
-  {
-    id: 4,
-    title: 'Restorative Care',
-    description: 'Comprehensive solutions for damaged teeth including crowns, bridges and dental implants.',
-    icon: <AutoFixHighIcon fontSize="medium" />,
-  },
-  {
-    id: 5,
-    title: 'Hygiene Treatments',
-    description: 'Deep cleaning procedures to remove plaque and tartar, helping prevent gum disease and decay.',
-    icon: <CleaningServicesIcon fontSize="medium" />,
-  },
-  {
-    id: 6,
-    title: 'Pediatric Dentistry',
-    description: 'Gentle dental care for children in a comfortable and supportive environment.',
-    icon: <ChildCareIcon fontSize="medium" />,
+    icon: <Stethoscope size={48} color="#d1b78f" />,
+    title: 'Implantes',
+    description: 'Reabilitação oral completa com implantes dentários de última geração, devolvendo função e estética com resultados naturais e duradouros.',
   },
 ];
 
-const Services: React.FC = () => {
-  const theme = useTheme();
-
+export default function Services() {
   return (
-    <Box sx={{ py: 10, bgcolor: 'background.default' }}>
-      <Container maxWidth="xl">
-        <Box sx={{ textAlign: 'center', mb: 2 }}>
-          <Typography 
-            variant="h6" 
-            component="p" 
-            color="primary" 
-            sx={{ mb: 2, letterSpacing: 3, textTransform: 'uppercase' }}
+    <Box
+      component="section"
+      id="servicos"
+      sx={{
+        py: { xs: 8, md: 12 },
+        backgroundColor: '#fff',
+      }}
+    >
+      <Container maxWidth="lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="h2"
+            align="center"
+            className="gold-gradient-text"
+            sx={{
+              fontSize: { xs: '2rem', md: '3rem' },
+              fontWeight: 700,
+              mb: { xs: 4, md: 6 },
+            }}
           >
-            Our Expertise
+            Nossos Serviços
           </Typography>
-          <Typography 
-            variant="h3" 
-            component="h2" 
-            fontWeight={300} 
-            sx={{ mb: 3 }}
-          >
-            Comprehensive Dental Services
-          </Typography>
-          <Divider sx={{ width: '40px', borderColor: theme.palette.primary.main, borderWidth: 2, mx: 'auto', mb: 6 }}/>
-        </Box>
+        </motion.div>
 
         <Grid container spacing={4}>
-          {services.map((service) => (
-            <Grid item xs={12} sm={6} md={4} key={service.id}>
-              <Card 
-                sx={{ 
-                  height: '100%', 
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
-                    '& .service-icon': {
-                      color: theme.palette.primary.main,
-                      backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                    },
-                  }
-                }}
+          {serviceItems.map((item, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.2 }}
+                className="framer-motion-section"
               >
-                <CardContent sx={{ p: 4, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <Box 
-                    className="service-icon"
-                    sx={{ 
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: 60,
-                      height: 60,
-                      color: theme.palette.text.primary,
-                      backgroundColor: theme.palette.background.paper,
-                      transition: 'all 0.3s ease',
-                      mb: 3
-                    }}
-                  >
-                    {service.icon}
-                  </Box>
-                  <Typography variant="h5" component="h3" fontWeight={400} sx={{ mb: 2 }}>
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 3, flexGrow: 1 }}>
-                    {service.description}
-                  </Typography>
-                  <Box
-                    sx={{
-                      mt: 'auto',
-                      display: 'flex',
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                      color: theme.palette.text.secondary,
-                      transition: 'color 0.3s ease',
-                      '&:hover': {
-                        color: theme.palette.primary.main,
-                      }
-                    }}
-                  >
-                    <Typography 
-                      variant="body2" 
-                      sx={{ 
-                        fontWeight: 500, 
-                        mr: 1,
-                        transition: 'color 0.3s ease',
-                        textTransform: 'uppercase',
-                        fontSize: '0.8rem',
-                        letterSpacing: 1
+                <Card
+                  elevation={0}
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    borderRadius: 2,
+                    border: '1px solid rgba(209, 183, 143, 0.3)',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 8px 24px rgba(15, 26, 51, 0.1)',
+                      transform: 'translateY(-8px)',
+                      borderColor: 'rgba(209, 183, 143, 0.6)',
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 4, flexGrow: 1 }}>
+                    <Box sx={{ mb: 2 }}>{item.icon}</Box>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h3"
+                      sx={{
+                        fontWeight: 600,
+                        color: 'primary.main',
+                        mb: 2,
                       }}
                     >
-                      Learn More
+                      {item.title}
                     </Typography>
-                    <ArrowForwardIcon fontSize="small" />
-                  </Box>
-                </CardContent>
-              </Card>
+                    <Typography variant="body1" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </Grid>
           ))}
         </Grid>
-
-        <Box sx={{ textAlign: 'center', mt: 8 }}>
-          <Button 
-            variant="outlined" 
-            color="primary" 
-            size="large"
-            endIcon={<ArrowForwardIcon />}
-            sx={{
-              px: 4,
-              borderWidth: '1px'
-            }}
-          >
-            View All Services
-          </Button>
-        </Box>
       </Container>
     </Box>
   );
-};
-
-export default Services; 
+} 

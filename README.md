@@ -1,95 +1,60 @@
-# DentSmile - Dental Clinic Landing Page
+# Clínica Naturalize
 
-A professional landing page for a dental clinic featuring a clean, modern design with white and gold color scheme. Built with React and Material UI.
+Website para a Clínica Naturalize, desenvolvido com Next.js, Material UI e Framer Motion.
 
-## Features
+## Tecnologias
 
-- Responsive design for all device sizes
-- Professional and clean layout focused on dental services
-- Sections for services, testimonials, and contact information
-- White and gold color scheme for a premium feel
-- Built with Material UI for consistent and beautiful components
+- Next.js 15.3.2 (App Router)
+- React 19.1.0
+- Material UI 6.0.0
+- Framer Motion 12.12.1
+- TypeScript 5.8.3
+- Lucide Icons
 
-## Demo
+## Funcionalidades
 
-The landing page showcases:
+- Landing page com design elegante e minimalista
+- Layout responsivo
+- Animações suaves com Framer Motion
+- Formulário de contato funcional
+- Compatível com SEO
 
-- Header with navigation and appointment booking
-- Hero section with a call-to-action
-- Services section highlighting dental procedures
-- Testimonials from satisfied patients
-- Contact form and clinic information
-- Footer with links and additional contact details
+## Estrutura do Projeto
 
-## Getting Started
+- `/src/app`: Roteamento e layout principal
+- `/src/components`: Componentes modulares
+- `/src/theme.ts`: Configuração de tema e cores
+- `/pages/api`: Endpoints da API
 
-### Prerequisites
+## Paleta de Cores
 
-- Node.js (version 14 or higher)
-- npm or yarn
+- Navy principal: #0f1a33
+- Navy escuro: #0b1429
+- Dourado: #d1b78f
+- Sombra dourada: #8c7353
 
-### Installation
+## Como executar
 
-1. Clone the repository:
-```
-git clone <repository-url>
-```
-
-2. Navigate to the project directory:
-```
-cd landing-page
-```
-
-3. Install dependencies:
-```
+```bash
+# Instalar dependências
 npm install
-```
 
-4. Start the development server:
-```
+# Executar em desenvolvimento
+npm run dev
+
+# Construir para produção
+npm run build
+
+# Executar build de produção
 npm start
 ```
 
-The application will open in your default browser at `http://localhost:3000`.
+Acesse `http://localhost:3000` para visualizar o site.
 
-## Customization
+## Deploy
 
-### Colors
+Este projeto está configurado para deploy na Vercel. Conecte o repositório à sua conta Vercel para deploy automático a cada push.
 
-The color scheme can be adjusted in the `src/theme.ts` file. The current theme uses gold and white as primary colors.
+## Licença
 
-### Content
-
-- Update the service offerings in `src/components/Services.tsx`
-- Modify testimonials in `src/components/Testimonials.tsx`
-- Change contact information in `src/components/Contact.tsx` and `src/components/Footer.tsx`
-
-### Images
-
-- Replace the placeholder images with your own dental clinic photos
-
-## Building for Production
-
-To create a production build:
-
-```
-npm run build
-```
-
-This will create an optimized build in the `build` folder that can be deployed to any static hosting service.
-
-## Technologies Used
-
-- React
-- TypeScript
-- Material UI
-- Emotion (for styling)
-
-## License
-
-This project is available for free use and modification.
-
-## Acknowledgments
-
-- Material UI for the component library
-- Google Fonts for the typography
+Todos os direitos reservados © Clínica Naturalize 

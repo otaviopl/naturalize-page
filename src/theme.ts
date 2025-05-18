@@ -1,116 +1,110 @@
-import { createTheme } from '@mui/material/styles';
+"use client";
 
+import { createTheme } from '@mui/material/styles';
+import { Poppins, Inter } from 'next/font/google';
+
+// Font configuration
+export const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+});
+
+export const inter = Inter({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+// Color palette
+const navyMain = '#0f1a33';
+const navyDark = '#0b1429';
+const gold = '#d1b78f';
+const goldShadow = '#8c7353';
+
+// Create the theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#B0A084', // Sophisticated taupe/beige
-      light: '#D6CFC7',
-      dark: '#8A7B66',
-      contrastText: '#fff',
+      main: navyMain,
+      dark: navyDark,
     },
     secondary: {
-      main: '#2C3639', // Deep charcoal
-      light: '#4B5457',
-      dark: '#1E2628',
-      contrastText: '#fff',
+      main: gold,
+      dark: goldShadow,
     },
     background: {
-      default: '#FCFCFC',
-      paper: '#FFFFFF',
+      default: '#ffffff',
+      paper: '#f8f9fa',
     },
     text: {
-      primary: '#2C3639',
-      secondary: '#636E72',
+      primary: navyMain,
+      secondary: '#4a5568',
     },
   },
   typography: {
-    fontFamily: '"Poppins", "Helvetica", "Arial", sans-serif',
+    fontFamily: inter.style.fontFamily,
     h1: {
-      fontWeight: 300,
-      fontSize: '3rem',
-      letterSpacing: '-0.5px',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: 700,
     },
     h2: {
-      fontWeight: 300,
-      fontSize: '2.5rem',
-      letterSpacing: '-0.5px',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: 700,
     },
     h3: {
-      fontWeight: 400,
-      fontSize: '2rem',
-      letterSpacing: '-0.25px',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: 600,
     },
     h4: {
-      fontWeight: 400,
-      fontSize: '1.5rem',
-      letterSpacing: 0,
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: 600,
     },
     h5: {
-      fontWeight: 400,
-      fontSize: '1.25rem',
-      letterSpacing: '0.15px',
+      fontFamily: poppins.style.fontFamily,
+      fontWeight: 500,
     },
     h6: {
+      fontFamily: poppins.style.fontFamily,
       fontWeight: 500,
-      fontSize: '1rem',
-      letterSpacing: '0.15px',
     },
     button: {
+      fontFamily: poppins.style.fontFamily,
       fontWeight: 500,
-      letterSpacing: '0.5px',
+      textTransform: 'none',
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 0,
-          textTransform: 'none',
-          padding: '10px 28px',
-          fontWeight: 400,
+          borderRadius: 8,
+          padding: '10px 24px',
         },
-        contained: {
-          boxShadow: 'none',
+        containedPrimary: {
+          backgroundColor: gold,
+          color: navyMain,
           '&:hover': {
-            boxShadow: 'none',
-            backgroundColor: '#8A7B66',
-          },
-        },
-        outlined: {
-          borderWidth: '1px',
-          '&:hover': {
-            borderWidth: '1px',
+            backgroundColor: goldShadow,
           },
         },
       },
     },
-    MuiCard: {
+    MuiContainer: {
       styleOverrides: {
         root: {
-          borderRadius: 0,
-          boxShadow: 'none',
-          border: '1px solid #EEEEEE',
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          borderRadius: 0,
-          boxShadow: 'none',
-        },
-        elevation1: {
-          boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.08)',
-        },
-        elevation2: {
-          boxShadow: '0px 1px 5px rgba(0, 0, 0, 0.08)',
-        },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          borderColor: '#EEEEEE',
+          paddingLeft: 32,
+          paddingRight: 32,
+          '@media (min-width:600px)': {
+            paddingLeft: 48,
+            paddingRight: 48,
+          },
+          '@media (min-width:960px)': {
+            paddingLeft: 64,
+            paddingRight: 64,
+          },
         },
       },
     },
