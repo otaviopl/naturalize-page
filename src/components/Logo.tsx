@@ -19,20 +19,16 @@ export default function Logo({ sx }: LogoProps) {
         ...sx
       }}
     >
-      {/* Stylized N logo for Naturalize */}
-      <path
-        d="M40 20H50L70 60H60L55 50H35L30 60H20L40 20ZM40 30L38 35H52L50 30H40Z"
-        fill="url(#gold-gradient)"
-      />
+      {/* Full Naturalize text */}
       <text
-        x="80"
+        x="20"
         y="45"
         fontFamily="Poppins, sans-serif"
         fontWeight="600"
         fontSize="24"
         fill="url(#gold-gradient)"
       >
-        aturalize
+        Naturalize
       </text>
       {/* Gold gradient definition */}
       <defs>

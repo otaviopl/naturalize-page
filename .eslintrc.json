@@ -1,0 +1,7 @@
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["@next/eslint-plugin-next"],
+  "rules": {
+    "@next/next/no-server-import-in-client-component": "error"
+  }
+} 

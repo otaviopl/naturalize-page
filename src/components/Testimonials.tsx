@@ -2,8 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import { Box, Card, CardContent, Container, Typography, Avatar } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Quote } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Framer Motion components
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  { ssr: false }
+);
+
+const AnimatePresence = dynamic(
+  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  { ssr: false }
+);
 
 const testimonials = [
   {
@@ -28,8 +39,10 @@ const testimonials = [
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 5000);
@@ -46,7 +59,7 @@ export default function Testimonials() {
       }}
     >
       <Container maxWidth="lg">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -64,73 +77,75 @@ export default function Testimonials() {
           >
             Depoimentos
           </Typography>
-        </motion.div>
+        </MotionDiv>
 
-        <Box
-          sx={{
-            position: 'relative',
-            height: { xs: '320px', md: '280px' },
-            overflow: 'hidden',
-          }}
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              style={{ position: 'absolute', width: '100%' }}
-            >
-              <Card
-                elevation={0}
-                sx={{
-                  maxWidth: '800px',
-                  mx: 'auto',
-                  borderRadius: 2,
-                  border: '1px solid rgba(209, 183, 143, 0.3)',
-                  backgroundColor: 'rgba(15, 26, 51, 0.02)',
-                }}
+        {mounted && (
+          <Box
+            sx={{
+              position: 'relative',
+              height: { xs: '320px', md: '280px' },
+              overflow: 'hidden',
+            }}
+          >
+            <AnimatePresence mode="wait">
+              <MotionDiv
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                style={{ position: 'absolute', width: '100%' }}
               >
-                <CardContent sx={{ p: { xs: 3, md: 5 } }}>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      mb: 3,
-                    }}
-                  >
-                    <Avatar
+                <Card
+                  elevation={0}
+                  sx={{
+                    maxWidth: '800px',
+                    mx: 'auto',
+                    borderRadius: 2,
+                    border: '1px solid rgba(209, 183, 143, 0.3)',
+                    backgroundColor: 'rgba(15, 26, 51, 0.02)',
+                  }}
+                >
+                  <CardContent sx={{ p: { xs: 3, md: 5 } }}>
+                    <Box
                       sx={{
-                        bgcolor: 'secondary.main',
-                        color: 'primary.main',
-                        mr: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        mb: 3,
                       }}
                     >
-                      {testimonials[currentIndex].avatar}
-                    </Avatar>
-                    <Box>
-                      <Typography variant="h6" component="h3" sx={{ fontWeight: 600 }}>
-                        {testimonials[currentIndex].name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {testimonials[currentIndex].role}
-                      </Typography>
+                      <Avatar
+                        sx={{
+                          bgcolor: 'secondary.main',
+                          color: 'primary.main',
+                          mr: 2,
+                        }}
+                      >
+                        {testimonials[currentIndex].avatar}
+                      </Avatar>
+                      <Box>
+                        <Typography variant="h6" component="h3" sx={{ fontWeight: 600 }}>
+                          {testimonials[currentIndex].name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {testimonials[currentIndex].role}
+                        </Typography>
+                      </Box>
+                      <Quote
+                        size={32}
+                        color="#d1b78f"
+                        style={{ marginLeft: 'auto' }}
+                      />
                     </Box>
-                    <Quote
-                      size={32}
-                      color="#d1b78f"
-                      style={{ marginLeft: 'auto' }}
-                    />
-                  </Box>
-                  <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
-                    "{testimonials[currentIndex].text}"
-                  </Typography>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </AnimatePresence>
-        </Box>
+                    <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
+                      "{testimonials[currentIndex].text}"
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </MotionDiv>
+            </AnimatePresence>
+          </Box>
+        )}
 
         <Box
           sx={{

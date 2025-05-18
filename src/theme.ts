@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { createTheme } from '@mui/material/styles';
 import { Poppins, Inter } from 'next/font/google';
@@ -77,6 +77,16 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        ':root': {
+          '--navy-main': navyMain,
+          '--navy-dark': navyDark,
+          '--gold': gold,
+          '--gold-shadow': goldShadow,
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

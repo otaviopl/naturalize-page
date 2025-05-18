@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { poppins, inter } from '@/theme';
 import './globals.css';
-import ThemeRegistry from '../components/ThemeRegistry';
+import ClientProviders from '../components/ClientProviders';
 
 export const metadata: Metadata = {
   title: 'Clínica Naturalize - Saúde e Bem-estar',
@@ -16,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${inter.variable}`}>
       <body>
-        <ThemeRegistry>
+        <ClientProviders>
           {children}
-        </ThemeRegistry>
+        </ClientProviders>
       </body>
     </html>
   );

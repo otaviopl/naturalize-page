@@ -1,72 +1,56 @@
 "use client";
 
-import { useState } from 'react';
-import { Box, Button, Container, Grid, TextField, Typography, Alert, Snackbar } from '@mui/material';
-import { motion } from 'framer-motion';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { Box, Button, Container, Grid, TextField, Typography, Alert } from '@mui/material';
+import { sendLead, FormState } from '@/app/contact/actions';
+import { useMemo } from 'react';
+import dynamic from 'next/dynamic';
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
+// Dynamically import motion components
+const MotionDiv = dynamic(
+  () => import('framer-motion').then(mod => mod.motion.div),
+  { ssr: false }
+);
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  
+  return (
+    <Button
+      type="submit"
+      variant="contained"
+      color="primary"
+      size="large"
+      disabled={pending}
+      fullWidth
+      sx={{
+        py: 1.5,
+        fontWeight: 600,
+        boxShadow: '0 4px 14px rgba(209, 183, 143, 0.4)',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          transform: 'translateY(-3px)',
+          boxShadow: '0 8px 25px rgba(209, 183, 143, 0.5)',
+        },
+      }}
+    >
+      {pending ? 'Enviando...' : 'Enviar mensagem'}
+    </Button>
+  );
 }
 
+const initialState: FormState = {};
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  const [state, formAction] = useActionState(sendLead, initialState);
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(false);
-    
-    try {
-      const response = await fetch('/api/lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      if (response.ok) {
-        setSubmitSuccess(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
-        });
-      } else {
-        setSubmitError(true);
-      }
-    } catch (error) {
-      setSubmitError(true);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleCloseSnackbar = () => {
-    setSubmitSuccess(false);
-    setSubmitError(false);
-  };
+  const animation = useMemo(() => ({
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  }), []);
 
   return (
     <Box
@@ -78,11 +62,11 @@ export default function ContactForm() {
       }}
     >
       <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <MotionDiv
+          initial={animation.initial}
+          whileInView={animation.whileInView}
+          viewport={animation.viewport}
+          transition={animation.transition}
         >
           <Typography
             variant="h2"
@@ -105,11 +89,11 @@ export default function ContactForm() {
           >
             Agende sua avaliação e descubra como podemos ajudar a transformar seu sorriso.
           </Typography>
-        </motion.div>
+        </MotionDiv>
 
         <Box
           component="form"
-          onSubmit={handleSubmit}
+          action={formAction}
           sx={{
             maxWidth: '800px',
             mx: 'auto',
@@ -119,9 +103,18 @@ export default function ContactForm() {
             backgroundColor: '#fff',
           }}
         >
+          {state.message && (
+            <Alert 
+              severity={state.success ? "success" : "error"} 
+              sx={{ mb: 3 }}
+            >
+              {state.message}
+            </Alert>
+          )}
+          
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -133,15 +126,15 @@ export default function ContactForm() {
                   id="name"
                   name="name"
                   label="Nome completo"
-                  value={formData.name}
-                  onChange={handleChange}
                   variant="outlined"
+                  error={!!state.errors?.name}
+                  helperText={state.errors?.name?.join(', ')}
                 />
-              </motion.div>
+              </MotionDiv>
             </Grid>
             
             <Grid item xs={12} md={6}>
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -154,15 +147,15 @@ export default function ContactForm() {
                   name="email"
                   label="E-mail"
                   type="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   variant="outlined"
+                  error={!!state.errors?.email}
+                  helperText={state.errors?.email?.join(', ')}
                 />
-              </motion.div>
+              </MotionDiv>
             </Grid>
             
             <Grid item xs={12}>
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -174,15 +167,15 @@ export default function ContactForm() {
                   id="phone"
                   name="phone"
                   label="Telefone / WhatsApp"
-                  value={formData.phone}
-                  onChange={handleChange}
                   variant="outlined"
+                  error={!!state.errors?.phone}
+                  helperText={state.errors?.phone?.join(', ')}
                 />
-              </motion.div>
+              </MotionDiv>
             </Grid>
             
             <Grid item xs={12}>
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -195,57 +188,26 @@ export default function ContactForm() {
                   label="Mensagem"
                   multiline
                   rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
                   variant="outlined"
+                  error={!!state.errors?.message}
+                  helperText={state.errors?.message?.join(', ')}
                 />
-              </motion.div>
+              </MotionDiv>
             </Grid>
             
             <Grid item xs={12}>
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.4 }}
               >
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  disabled={isSubmitting}
-                  fullWidth
-                  sx={{
-                    py: 1.5,
-                    fontWeight: 600,
-                    boxShadow: '0 4px 14px rgba(209, 183, 143, 0.4)',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-3px)',
-                      boxShadow: '0 8px 25px rgba(209, 183, 143, 0.5)',
-                    },
-                  }}
-                >
-                  {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
-                </Button>
-              </motion.div>
+                <SubmitButton />
+              </MotionDiv>
             </Grid>
           </Grid>
         </Box>
       </Container>
-
-      <Snackbar open={submitSuccess} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
-          Mensagem enviada com sucesso! Entraremos em contato em breve.
-        </Alert>
-      </Snackbar>
-
-      <Snackbar open={submitError} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-        <Alert onClose={handleCloseSnackbar} severity="error" sx={{ width: '100%' }}>
-          Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.
-        </Alert>
-      </Snackbar>
     </Box>
   );
 } 
