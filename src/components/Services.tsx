@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { Sparkles, Smile, Stethoscope } from 'lucide-react';
 import ClientServiceItem from './ClientServiceItem';
 

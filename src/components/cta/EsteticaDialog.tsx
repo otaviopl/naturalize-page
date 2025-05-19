@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from 'react';
-import { 
+import {
   Dialog, 
   DialogTitle, 
   DialogContent, 
@@ -58,13 +57,14 @@ export default function EsteticaDialog({ open, onClose }: EsteticaDialogProps) {
                   alt="Tratamento estético dental"
                   fill
                   style={{ objectFit: 'cover' }}
-                  onError={(e: any) => {
-                    e.target.style.backgroundColor = '#f0f0f0';
-                    e.target.style.color = '#666';
-                    e.target.style.display = 'flex';
-                    e.target.style.alignItems = 'center';
-                    e.target.style.justifyContent = 'center';
-                    e.target.alt = 'Imagem não encontrada';
+                  onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.backgroundColor = '#f0f0f0';
+                    target.style.color = '#666';
+                    target.style.display = 'flex';
+                    target.style.alignItems = 'center';
+                    target.style.justifyContent = 'center';
+                    target.alt = 'Imagem não encontrada';
                   }}
                 />
               </Box>
@@ -80,13 +80,14 @@ export default function EsteticaDialog({ open, onClose }: EsteticaDialogProps) {
                   alt="Resultado de clareamento dental"
                   fill
                   style={{ objectFit: 'cover' }}
-                  onError={(e: any) => {
-                    e.target.style.backgroundColor = '#f0f0f0';
-                    e.target.style.color = '#666';
-                    e.target.style.display = 'flex';
-                    e.target.style.alignItems = 'center';
-                    e.target.style.justifyContent = 'center';
-                    e.target.alt = 'Imagem não encontrada';
+                  onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.backgroundColor = '#f0f0f0';
+                    target.style.color = '#666';
+                    target.style.display = 'flex';
+                    target.style.alignItems = 'center';
+                    target.style.justifyContent = 'center';
+                    target.alt = 'Imagem não encontrada';
                   }}
                 />
               </Box>

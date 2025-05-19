@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Image from 'next/image';
 import ClientHeroAnimation from './ClientHeroAnimation';
 

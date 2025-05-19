@@ -140,7 +140,7 @@ export default function Testimonials() {
                       />
                     </Box>
                     <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
-                      "{testimonials[currentIndex].text}"
+                      &quot;{testimonials[currentIndex].text}&quot;
                     </Typography>
                   </CardContent>
                 </Card>
