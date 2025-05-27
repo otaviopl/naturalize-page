@@ -7,6 +7,7 @@ import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import Professionals from '@/components/Professionals';
 import { Box } from '@mui/material';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
+        <Professionals />
         <Testimonials />
         <ContactForm />
       </main>
