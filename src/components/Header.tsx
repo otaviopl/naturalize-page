@@ -20,7 +20,9 @@ export default function Header() {
           <Box sx={{ flexGrow: 1 }} />
           <Button
             variant="contained"
-            href="#contato"
+            href="https://wa.me/551633711212"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               backgroundColor: 'secondary.main',
               color: 'primary.main',
