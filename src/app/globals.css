@@ -1,8 +1,9 @@
 :root {
-  --navy-main: #0f1a33;
-  --navy-dark: #0b1429;
-  --gold: #d1b78f;
-  --gold-shadow: #8c7353;
+  --navy-main: #262D42;
+  --navy-dark: #1E2333;
+  --gold: #E5C389;
+  --gold-light: #F5D9A9;
+  --wood-brown: #826F53;
 }
 
 * {
@@ -28,7 +29,7 @@ a {
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-shadow) 100%);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--wood-brown) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

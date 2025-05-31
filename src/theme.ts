@@ -19,10 +19,11 @@ export const inter = Inter({
 });
 
 // Color palette
-const navyMain = '#0f1a33';
-const navyDark = '#0b1429';
-const gold = '#d1b78f';
-const goldShadow = '#8c7353';
+const navyMain = '#262D42';
+const navyDark = '#1E2333';
+const gold = '#E5C389';
+const goldLight = '#F5D9A9';
+const woodBrown = '#826F53';
 
 // Create the theme
 const theme = createTheme({
@@ -33,15 +34,16 @@ const theme = createTheme({
     },
     secondary: {
       main: gold,
-      dark: goldShadow,
+      light: goldLight,
+      dark: woodBrown,
     },
     background: {
-      default: '#ffffff',
-      paper: '#f8f9fa',
+      default: '#FFFFFF',
+      paper: '#FFFFFF',
     },
     text: {
       primary: navyMain,
-      secondary: '#4a5568',
+      secondary: woodBrown,
     },
   },
   typography: {
@@ -83,7 +85,8 @@ const theme = createTheme({
           '--navy-main': navyMain,
           '--navy-dark': navyDark,
           '--gold': gold,
-          '--gold-shadow': goldShadow,
+          '--gold-light': goldLight,
+          '--wood-brown': woodBrown,
         },
       },
     },
@@ -97,7 +100,8 @@ const theme = createTheme({
           backgroundColor: gold,
           color: navyMain,
           '&:hover': {
-            backgroundColor: goldShadow,
+            backgroundColor: woodBrown,
+            color: '#FFFFFF',
           },
         },
       },

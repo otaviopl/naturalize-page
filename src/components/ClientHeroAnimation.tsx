@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, Container } from '@mui/material';
 import { motion } from 'framer-motion';
 
 export default function ClientHeroAnimation() {
@@ -12,7 +12,7 @@ export default function ClientHeroAnimation() {
   };
 
   return (
-    <>
+    <Container maxWidth="lg">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -22,10 +22,10 @@ export default function ClientHeroAnimation() {
           variant="h1"
           className="gold-gradient-text"
           sx={{
-            fontSize: { xs: '2.5rem', md: '4rem', lg: '5rem' },
+            fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4.5rem' },
             fontWeight: 700,
-            mb: 2,
-            lineHeight: 1.2,
+            mb: { xs: 3, md: 4 },
+            lineHeight: 1.1,
           }}
         >
           Viva sua beleza natural
@@ -40,15 +40,17 @@ export default function ClientHeroAnimation() {
         <Typography
           variant="h5"
           sx={{
-            maxWidth: '800px',
-            mb: 4,
+            maxWidth: '900px',
+            mb: { xs: 4, md: 5 },
             fontWeight: 400,
-            color: 'rgba(255, 255, 255, 0.9)',
-            lineHeight: 1.6,
+            color: 'rgba(255, 255, 255, 0.95)',
+            lineHeight: 1.7,
+            fontSize: { xs: '1rem', md: '1.15rem' },
+            letterSpacing: '0.3px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.1)',
           }}
         >
-          A Clínica Naturalize inicia seus atendimentos com uma proposta que vai além da estética: 
-          queremos transformar a forma como você se cuida, sente e sorri.
+          Na Naturalize, nosso compromisso vai muito além de cuidar do seu sorriso. Aqui, prezamos pela sua segurança, seu conforto e, principalmente, por oferecer um preço justo. Cada detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o seu atendimento. Acreditamos que a odontologia pode (e deve) ser acessível, humana e de alta qualidade. Na Naturalize, você encontra profissionais dedicados, tecnologia de ponta e um ambiente feito para você se sentir em casa.
         </Typography>
       </motion.div>
 
@@ -68,11 +70,15 @@ export default function ClientHeroAnimation() {
               fontWeight: 600,
               py: 1.5,
               px: 4,
-              boxShadow: '0 4px 14px rgba(209, 183, 143, 0.4)',
+              backgroundColor: 'secondary.main',
+              color: 'primary.main',
+              boxShadow: '0 4px 14px rgba(229, 195, 137, 0.4)',
               transition: 'all 0.3s ease',
               '&:hover': {
                 transform: 'translateY(-3px)',
-                boxShadow: '0 8px 25px rgba(209, 183, 143, 0.5)',
+                boxShadow: '0 8px 25px rgba(229, 195, 137, 0.5)',
+                backgroundColor: 'secondary.dark',
+                color: '#FFFFFF',
               },
             }}
           >
@@ -81,7 +87,6 @@ export default function ClientHeroAnimation() {
           
           <Button
             variant="outlined"
-            color="secondary"
             size="large"
             onClick={() => scrollToSection('servicos')}
             aria-label="Conheça nossos tratamentos"
@@ -96,7 +101,7 @@ export default function ClientHeroAnimation() {
               '&:hover': {
                 borderWidth: 2,
                 transform: 'translateY(-3px)',
-                backgroundColor: 'rgba(209, 183, 143, 0.1)',
+                backgroundColor: 'rgba(229, 195, 137, 0.1)',
               },
             }}
           >
@@ -104,6 +109,6 @@ export default function ClientHeroAnimation() {
           </Button>
         </Box>
       </motion.div>
-    </>
+    </Container>
   );
 } 
