@@ -5,18 +5,16 @@ import { motion } from 'framer-motion';
 
 const professionals = [
   {
-    name: 'Dra. Ana Paula Silva',
-    role: 'Cirurgiã-Dentista | CRO-SP 123456',
-    description:
-      'Especialista em Ortodontia e Estética, Dra. Ana Paula possui mais de 10 anos de experiência, unindo conhecimento técnico e atendimento humanizado para transformar sorrisos e elevar a autoestima de seus pacientes.',
-    image: '/mayuri.jpeg', // Coloque a imagem correspondente em public/
+    name: 'Dra. Mayuri Fernandes',
+    role: 'Facetas em Resinas',
+    image: '/mayuri.jpeg',
+    imagePosition: '50% 30%'
   },
   {
-    name: 'Dr. João Pedro Souza',
-    role: 'Implantodontista | CRO-SP 654321',
-    description:
-      'Referência em implantes e reabilitação oral, Dr. João Pedro alia tecnologia de ponta e dedicação para proporcionar resultados naturais e funcionais, sempre priorizando o bem-estar do paciente.',
-    image: '/luiz.jpeg', // Coloque a imagem correspondente em public/
+    name: 'Dr. Luiz Fernando Junior',
+    role: 'Implantodontista',
+    image: '/luiz.jpeg',
+    imagePosition: '50% 40%'
   },
 ];
 
@@ -26,8 +24,18 @@ export default function Professionals() {
       component="section"
       id="profissionais"
       sx={{
-        py: { xs: 8, md: 12 },
-        backgroundColor: 'rgba(15, 26, 51, 0.01)',
+        py: { xs: 10, md: 15 },
+        backgroundColor: '#FFFFFF',
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '40%',
+          background: 'linear-gradient(180deg, rgba(245, 217, 169, 0.2) 0%, rgba(245, 217, 169, 0) 100%)',
+        }
       }}
     >
       <Container maxWidth="lg">
@@ -40,17 +48,18 @@ export default function Professionals() {
           <Typography
             variant="h2"
             align="center"
-            className="gold-gradient-text"
             sx={{
               fontSize: { xs: '2rem', md: '3rem' },
               fontWeight: 700,
               mb: { xs: 4, md: 6 },
+              color: '#262D42',
+              position: 'relative'
             }}
           >
             Nossa Equipe
           </Typography>
         </motion.div>
-        <Grid container spacing={6} justifyContent="center">
+        <Grid container spacing={8} justifyContent="center">
           {professionals.map((prof, idx) => (
             <Grid item xs={12} md={5} key={prof.name}>
               <motion.div
@@ -59,20 +68,46 @@ export default function Professionals() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
               >
-                <Box display="flex" flexDirection="column" alignItems="center" textAlign="center">
+                <Box 
+                  display="flex" 
+                  flexDirection="column" 
+                  alignItems="center" 
+                  textAlign="center"
+                  sx={{
+                    padding: 3,
+                    borderRadius: 2,
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)'
+                    }
+                  }}
+                >
                   <Avatar
                     src={prof.image}
                     alt={prof.name}
-                    sx={{ width: 160, height: 160, mb: 3, boxShadow: 3 }}
+                    sx={{
+                      width: 180,
+                      height: 180,
+                      mb: 3,
+                      boxShadow: '0 8px 24px rgba(130, 111, 83, 0.15)',
+                      border: '4px solid #FFFFFF',
+                      '& .MuiAvatar-img': {
+                        objectPosition: prof.imagePosition
+                      }
+                    }}
                   />
-                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
+                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, color: '#262D42' }}>
                     {prof.name}
                   </Typography>
-                  <Typography variant="subtitle1" color="secondary" sx={{ mb: 2 }}>
+                  <Typography 
+                    variant="subtitle1" 
+                    sx={{ 
+                      color: '#826F53',
+                      fontWeight: 500,
+                      letterSpacing: '0.5px'
+                    }}
+                  >
                     {prof.role}
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontSize: { xs: '1rem', md: '1.05rem' }, lineHeight: 1.7 }}>
-                    {prof.description}
                   </Typography>
                 </Box>
               </motion.div>

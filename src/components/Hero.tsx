@@ -26,7 +26,7 @@ export default function Hero() {
       id="hero"
       sx={{
         position: 'relative',
-        minHeight: '90vh',
+        minHeight: '92vh',
         display: 'flex',
         alignItems: 'center',
         color: 'white',
@@ -38,7 +38,7 @@ export default function Hero() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(11, 20, 41, 0.7)',
+          background: 'linear-gradient(180deg, rgba(38, 45, 66, 0.51) 0%, rgba(38, 45, 66, 0.95) 100%)',
           zIndex: 1,
         },
       }}
@@ -67,7 +67,7 @@ export default function Hero() {
         sx={{
           position: 'relative',
           zIndex: 2,
-          py: 8,
+          py: { xs: 10, md: 12 },
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',

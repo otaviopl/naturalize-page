@@ -22,8 +22,8 @@ export default function Footer() {
             <Box sx={{ mb: 3 }}>
               <Logo sx={{ filter: 'brightness(1.1)' }} />
             </Box>
-            <Typography variant="body2" sx={{ opacity: 0.9, mb: 2, maxWidth: 300 }}>
-              Transforme a forma como você se cuida, sente e sorri com a Clínica Naturalize.
+            <Typography variant="body2" sx={{ opacity: 0.9, mb: 1, maxWidth: 300, fontSize: { xs: '0.8rem', md: '1rem' } }}>
+            Referência em implantes e estética. Valorizamos seu sorriso com naturalidade!
             </Typography>
           </Grid>
           
@@ -36,8 +36,7 @@ export default function Footer() {
               <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                 <MapPin size={20} style={{ marginRight: 10, marginTop: 4 }} />
                 <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                  Av. Dr. Carlos Botelho, 1234 - Centro<br />
-                  São Carlos - SP, 13560-250
+                R. São Sebastião, 1633 - Centro, São Carlos - SP, 13560-230
                 </Typography>
               </Box>
               
@@ -45,7 +44,7 @@ export default function Footer() {
                 <Clock size={20} style={{ marginRight: 10, marginTop: 4 }} />
                 <Typography variant="body2" sx={{ opacity: 0.9 }}>
                   Segunda a Sexta: 8h às 19h<br />
-                  Sábado: 8h às 13h
+                  Sábado: 8:30h às 13h
                 </Typography>
               </Box>
             </Stack>
@@ -60,26 +59,26 @@ export default function Footer() {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Phone size={20} style={{ marginRight: 10 }} />
                 <Link 
-                  href="tel:+5516999999999" 
+                  href="tel:+551633711212" 
                   color="inherit" 
                   underline="hover"
                   sx={{ opacity: 0.9 }}
                 >
-                  (16) 99999-9999
+                  (16) 3371-1212
                 </Link>
               </Box>
               
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Instagram size={20} style={{ marginRight: 10 }} />
                 <Link 
-                  href="https://instagram.com/clinica.naturalize" 
+                  href="https://www.instagram.com/naturalizeodontologia/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   color="inherit" 
                   underline="hover"
                   sx={{ opacity: 0.9 }}
                 >
-                  @clinica.naturalize
+                  @naturalizeodontologia
                 </Link>
               </Box>
             </Stack>
