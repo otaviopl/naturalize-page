@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Box, Card, CardContent, Container, Typography, Avatar, Button } from '@mui/material';
-import { Quote, ArrowRight } from 'lucide-react';
+import { Box, Card, CardContent, Container, Typography, Avatar } from '@mui/material';
+import { Quote } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 
 // Dynamically import Framer Motion components
 const MotionDiv = dynamic(
@@ -19,23 +18,17 @@ const AnimatePresence = dynamic(
 
 const testimonials = [
   {
-    name: 'Ana Paula',
-    role: 'Paciente de Ortodontia',
-    text: 'Estou encantada com os resultados do meu tratamento ortodôntico. A equipe da Naturalize é extremamente atenciosa e o ambiente da clínica transmite conforto e segurança.',
-    avatar: 'AP',
+    name: 'Bel Valim',
+    role: 'Paciente',
+    text: 'Eu [...] tive muitos problemas, meus dentes muito separados. Inclusive cheguei aparelho invisalign gastei um dinheirão com esse tratamento e continuei insatisfeita . Mas tomei coragem e procurei Dr Mayuri, e o resultado foi surpreendente. Nunca estive tão feliz com meus dentes, com meu sorriso. Obrigada a Naturalize ! ',
+    avatar: 'BV',
   },
   {
-    name: 'Marcos Silva',
-    role: 'Paciente de Implante',
-    text: 'Realizar implantes na Clínica Naturalize foi a melhor decisão. Procedimento indolor e recuperação rápida. Agora posso sorrir com confiança novamente.',
-    avatar: 'MS',
-  },
-  {
-    name: 'Carla Mendes',
-    role: 'Tratamento Estético',
-    text: 'Os tratamentos estéticos da Naturalize superaram todas as minhas expectativas. Resultados naturais e duradouros. A equipe entendeu exatamente o que eu procurava.',
-    avatar: 'CM',
-  },
+    name: 'Fernanda Rezende',
+    role: 'Paciente',
+    text: 'Vocês são ótimos profissionais, fiquei muito satisfeita com o atendimento, minha mãe foi me recomendou e também levei minha filha.',
+    avatar: 'FR',
+  }
 ];
 
 export default function Testimonials() {
@@ -172,30 +165,7 @@ export default function Testimonials() {
             />
           ))}
         </Box>
-        
-        <Box sx={{ position: 'absolute', bottom: 24, right: 24, zIndex: 10 }}>
-          <Link href="/resultados" passHref>
-            <Button
-              variant="outlined"
-              color="secondary"
-              size="small"
-              endIcon={<ArrowRight size={16} />}
-              aria-label="Veja antes e depois"
-              sx={{
-                fontWeight: 500,
-                borderWidth: 2,
-                px: 2,
-                py: 0.75,
-                '&:hover': {
-                  borderWidth: 2,
-                  backgroundColor: 'rgba(209, 183, 143, 0.1)',
-                }
-              }}
-            >
-              Veja antes e depois
-            </Button>
-          </Link>
-        </Box>
+      
       </Container>
     </Box>
   );
