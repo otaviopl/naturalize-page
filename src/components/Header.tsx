@@ -1,7 +1,6 @@
 "use client";
 
 import { AppBar, Box, Button, Container, Toolbar } from '@mui/material';
-import { motion } from 'framer-motion';
 import Logo from './Logo';
 
 export default function Header() {
