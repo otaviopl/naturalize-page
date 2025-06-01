@@ -55,7 +55,7 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
       case 'Implantes':
         return {
           text: "Consultar implantes",
-          action: () => window.open('https://wa.me/5516999999999', '_blank'),
+          action: () => window.open('https://wa.me/551633711212', '_blank'),
           ariaLabel: "Consultar sobre implantes no WhatsApp"
         };
       default:
