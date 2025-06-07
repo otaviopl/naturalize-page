@@ -6,6 +6,8 @@ import theme from '@/theme';
 import dynamic from 'next/dynamic';
 
 const StickyMobileCTA = dynamic(() => import('./cta/StickyMobileCTA'), { ssr: false });
+const WhatsAppWidget = dynamic(() => import('./WhatsAppWidget'), { ssr: false });
+const InstagramWidget = dynamic(() => import('./InstagramWidget'), { ssr: false });
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +15,8 @@ export default function ClientProviders({ children }: { children: React.ReactNod
       <CssBaseline />
       {children}
       <StickyMobileCTA />
+      <WhatsAppWidget />
+      <InstagramWidget />
     </ThemeProvider>
   );
 } 
