@@ -91,16 +91,20 @@ export default function About() {
                 e uma experiência pensada nos mínimos detalhes. Agora, São Carlos pode contar com um novo conceito em saúde e bem-estar.
               </Typography>
               
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 600,
-                  mt: 4,
-                  color: 'secondary.main',
-                }}
-              >
-                Naturalize — viva sua beleza natural com mais confiança. 🥂
-              </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 600,
+                    mt: 4,
+                    padding: '16px 24px',
+                    backgroundColor: 'primary.main',
+                    color: 'secondary.main',
+                    borderRadius: 2,
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                  }}
+                >
+                  Naturalize — viva sua beleza natural com mais confiança. 🥂
+                </Typography>
             </motion.div>
           </Grid>
         </Grid>
