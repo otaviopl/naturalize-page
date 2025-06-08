@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import { Sparkles, Smile, Stethoscope } from 'lucide-react';
+import { Sparkles, Smile, Stethoscope, Scalpel } from 'lucide-react';
 import ClientServiceItem from './ClientServiceItem';
 import Image from 'next/image';
 
@@ -21,6 +21,18 @@ const serviceItems = [
     title: 'Implantes',
     description: 'Recupere dentes perdidos com implantes dentários de última geração. Mais segurança, conforto e estética para sorrir com confiança todos os dias.',
     image: '/images/services/implante-main.jpeg',
+  },
+  {
+    icon: <Scalpel size={48} color="#d1b78f" />,
+    title: 'Cirurgias em geral',
+    description: 'Procedimentos cirúrgicos realizados com precisão para garantir a saúde e o bem-estar bucal.',
+    image: '/place/place4.jpeg',
+  },
+  {
+    icon: <Stethoscope size={48} color="#d1b78f" />,
+    title: 'Clínico geral',
+    description: 'Atendimento clínico completo para cuidar da sua saúde bucal no dia a dia.',
+    image: '/place/place3.jpeg',
   },
 ];
 
