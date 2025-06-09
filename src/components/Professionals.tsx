@@ -6,13 +6,15 @@ import { motion } from 'framer-motion';
 const professionals = [
   {
     name: 'Dra. Mayuri Fernandes',
-    role: 'Facetas em Resinas',
+    role: 'Ortodontia e Estética',
+    document: 'CRO SP 169943',
     image: '/mayuri.jpeg',
     imagePosition: '50% 30%'
   },
   {
     name: 'Dr. Luiz Fernando Junior',
-    role: 'Implantodontista',
+    role: 'Implante e Cirurgia',
+    document: 'CRO SP 170301',
     image: '/luiz.jpeg',
     imagePosition: '50% 40%'
   },
@@ -51,12 +53,25 @@ export default function Professionals() {
             sx={{
               fontSize: { xs: '2rem', md: '3rem' },
               fontWeight: 700,
-              mb: { xs: 4, md: 6 },
+              mb: 2,
               color: '#262D42',
               position: 'relative'
             }}
           >
             Nossa Equipe
+          </Typography>
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{
+              mb: { xs: 4, md: 6 },
+              color: '#826F53',
+              fontWeight: 400,
+              maxWidth: '600px',
+              mx: 'auto'
+            }}
+          >
+            Profissionais altamente qualificados e dedicados ao seu sorriso
           </Typography>
         </motion.div>
         <Grid container spacing={8} justifyContent="center">
@@ -104,10 +119,21 @@ export default function Professionals() {
                     sx={{ 
                       color: '#826F53',
                       fontWeight: 500,
-                      letterSpacing: '0.5px'
+                      letterSpacing: '0.5px',
+                      mb: 0.5
                     }}
                   >
                     {prof.role}
+                  </Typography>
+                  <Typography 
+                    variant="subtitle2" 
+                    sx={{ 
+                      color: '#826F53',
+                      fontWeight: 400,
+                      opacity: 0.8
+                    }}
+                  >
+                    {prof.document}
                   </Typography>
                 </Box>
               </motion.div>
