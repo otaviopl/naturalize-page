@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import { Sparkles, Smile, Stethoscope } from 'lucide-react';
+import { Sparkles, Smile, Stethoscope, Activity, UserCheck } from 'lucide-react';
 import ClientServiceItem from './ClientServiceItem';
 import Image from 'next/image';
 
@@ -21,6 +21,18 @@ const serviceItems = [
     title: 'Implantes',
     description: 'Recupere dentes perdidos com implantes dentários de última geração. Mais segurança, conforto e estética para sorrir com confiança todos os dias.',
     image: '/images/services/implante-main.jpeg',
+  },
+  {
+    icon: <Activity size={48} color="#d1b78f" />,
+    title: 'Cirurgias em geral',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a turpis lobortis, luctus dolor ut, luctus diam. Maecenas. ',
+    image: '',
+  },
+  {
+    icon: <UserCheck size={48} color="#d1b78f" />,
+    title: 'Clínico geral',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a turpis lobortis, luctus dolor ut, luctus diam. Maecenas. ',
+    image: '',
   },
 ];
 
