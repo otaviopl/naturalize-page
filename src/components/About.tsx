@@ -7,12 +7,10 @@ import {
   Typography,
   Card,
   CardMedia,
-  CardContent,
 } from "@mui/material";
 import { motion } from "framer-motion";
 
 const ABOUT_IMAGE = "/place/place6.jpeg";
-const FOUNDED_DATE = "Fundada em 1998";
 
 export default function About() {
   return (
