@@ -25,13 +25,13 @@ const serviceItems = [
   {
     icon: <Activity size={48} color="#d1b78f" />,
     title: 'Cirurgias em geral',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a turpis lobortis, luctus dolor ut, luctus diam. Maecenas. ',
+    description: 'Tratamentos cirúrgicos planejados com precisão e cuidado, aliviar dores e restaurar seu bem-estar. Da remoção de dentes comprometidos a procedimentos reconstrutivos, cada detalhe é pensado para sua segurança e tranquilidade.',
     image: '',
   },
   {
     icon: <UserCheck size={48} color="#d1b78f" />,
     title: 'Clínico geral',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a turpis lobortis, luctus dolor ut, luctus diam. Maecenas. ',
+    description: 'Cuidamos da sua saúde bucal com atenção integral. Avaliações, limpezas, diagnósticos e tratamentos preventivos pensados para manter seu sorriso bonito e saudável em todas as fases da vida.',
     image: '',
   },
 ];
