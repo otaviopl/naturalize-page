@@ -38,7 +38,7 @@ export default function About() {
             sx={{
               fontSize: { xs: "2rem", md: "3rem" },
               fontWeight: 700,
-              mb: { xs: 4, md: 6 },
+              mb: { xs: 2, md: 1.05 },
             }}
           >
             Sobre Nós
@@ -56,7 +56,7 @@ export default function About() {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  fontSize: { xs: "1rem", md: "1.4rem" },
                   mb: 3,
                   lineHeight: 1.8,
                 }}
