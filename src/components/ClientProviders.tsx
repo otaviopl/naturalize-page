@@ -14,7 +14,7 @@ export default function ClientProviders({ children }: { children: React.ReactNod
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {children}
-      <StickyMobileCTA />
+      {/* <StickyMobileCTA /> */}
       <WhatsAppWidget />
       <InstagramWidget />
     </ThemeProvider>
