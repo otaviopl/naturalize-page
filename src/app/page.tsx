@@ -8,6 +8,7 @@ import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import Professionals from '@/components/Professionals';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import Contact from '@/components/Contact';
 import { Box } from '@mui/material';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <About />
         <Professionals />
         <Testimonials />
+        <Contact />
       </main>
       <Footer />
       <WhatsAppWidget />
