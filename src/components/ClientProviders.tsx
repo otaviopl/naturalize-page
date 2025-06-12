@@ -14,7 +14,6 @@ export default function ClientProviders({ children }: { children: React.ReactNod
       <CssBaseline />
       {children}
       {/* <StickyMobileCTA /> */}
-      <WhatsAppWidget />
       <InstagramWidget />
     </ThemeProvider>
   );
