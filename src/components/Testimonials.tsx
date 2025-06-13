@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from 'react';
 import { Box, Card, CardContent, Container, Typography, Avatar } from '@mui/material';
@@ -6,15 +6,13 @@ import { Quote } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 // Dynamically import Framer Motion components
-const MotionDiv = dynamic(
-  () => import('framer-motion').then(mod => mod.motion.div),
-  { ssr: false }
-);
+const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
+  ssr: false,
+});
 
-const AnimatePresence = dynamic(
-  () => import('framer-motion').then(mod => mod.AnimatePresence),
-  { ssr: false }
-);
+const AnimatePresence = dynamic(() => import('framer-motion').then((mod) => mod.AnimatePresence), {
+  ssr: false,
+});
 
 const testimonials = [
   {
@@ -28,7 +26,7 @@ const testimonials = [
     role: 'Paciente',
     text: 'Vocês são ótimos profissionais, fiquei muito satisfeita com o atendimento, minha mãe foi me recomendou e também levei minha filha.',
     avatar: 'FR',
-  }
+  },
 ];
 
 export default function Testimonials() {
@@ -126,11 +124,7 @@ export default function Testimonials() {
                           {testimonials[currentIndex].role}
                         </Typography>
                       </Box>
-                      <Quote
-                        size={32}
-                        color="#d1b78f"
-                        style={{ marginLeft: 'auto' }}
-                      />
+                      <Quote size={32} color="#d1b78f" style={{ marginLeft: 'auto' }} />
                     </Box>
                     <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
                       &quot;{testimonials[currentIndex].text}&quot;
@@ -158,15 +152,15 @@ export default function Testimonials() {
                 height: 12,
                 mx: 1,
                 borderRadius: '50%',
-                backgroundColor: index === currentIndex ? 'secondary.main' : 'rgba(209, 183, 143, 0.3)',
+                backgroundColor:
+                  index === currentIndex ? 'secondary.main' : 'rgba(209, 183, 143, 0.3)',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
               }}
             />
           ))}
         </Box>
-      
       </Container>
     </Box>
   );
-} 
+}

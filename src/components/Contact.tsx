@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Box, Container, Typography, Paper, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -48,16 +48,17 @@ export default function Contact() {
                 <Typography variant="h5" component="h3" sx={{ mb: 3, fontWeight: 600 }}>
                   Informações de Contato
                 </Typography>
-                
+
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <MapPin size={24} weight="fill" color="#D1B78F" />
                     <Typography>
-                      R. São Sebastião, 1633 - Centro<br />
+                      R. São Sebastião, 1633 - Centro
+                      <br />
                       São Carlos - SP, 13560-230
                     </Typography>
                   </Box>
-                  
+
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <Phone size={24} weight="fill" color="#D1B78F" />
                     <Typography>(16) 3371-1212</Typography>
@@ -65,7 +66,8 @@ export default function Contact() {
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <Clock size={24} weight="fill" color="#D1B78F" />
                     <Typography>
-                      Segunda a Sexta: 8h às 19h<br />
+                      Segunda a Sexta: 8h às 19h
+                      <br />
                       Sábados: 8h às 13h
                     </Typography>
                   </Box>
@@ -98,4 +100,4 @@ export default function Contact() {
       </Container>
     </Box>
   );
-} 
+}

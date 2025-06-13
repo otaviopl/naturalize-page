@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Box, Container, Grid, Typography} from "@mui/material";
 import { motion } from "framer-motion";
@@ -38,8 +38,9 @@ export default function Professionals() {
           left: 0,
           right: 0,
           height: '40%',
-          background: 'linear-gradient(180deg, rgba(245, 217, 169, 0.2) 0%, rgba(245, 217, 169, 0) 100%)',
-        }
+          background:
+            'linear-gradient(180deg, rgba(245, 217, 169, 0.2) 0%, rgba(245, 217, 169, 0) 100%)',
+        },
       }}
     >
       <Container maxWidth="lg">
@@ -57,7 +58,7 @@ export default function Professionals() {
               fontWeight: 700,
               mb: { xs: 4, md: 6 },
               color: '#262D42',
-              position: 'relative'
+              position: 'relative',
             }}
           >
             Nossa Equipe
@@ -201,4 +202,4 @@ export default function Professionals() {
       </Container>
     </Box>
   );
-} 
+}

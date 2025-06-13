@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,4 +16,4 @@ export default function ClientProviders({ children }: { children: React.ReactNod
       <InstagramWidget />
     </ThemeProvider>
   );
-} 
+}

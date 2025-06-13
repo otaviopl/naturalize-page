@@ -38,7 +38,8 @@ export default function Hero() {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(180deg, rgba(38, 45, 66, 0.51) 0%, rgba(38, 45, 66, 0.95) 100%)',
+          background:
+            'linear-gradient(180deg, rgba(38, 45, 66, 0.51) 0%, rgba(38, 45, 66, 0.95) 100%)',
           zIndex: 1,
         },
       }}
@@ -78,4 +79,4 @@ export default function Hero() {
       </Container>
     </Box>
   );
-} 
+}
