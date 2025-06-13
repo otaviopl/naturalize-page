@@ -1,16 +1,9 @@
-"use client";
+'use client';
 
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Card,
-  CardMedia,
-} from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material';
+import { motion } from 'framer-motion';
 
-const ABOUT_IMAGE = "/place/place6.jpeg";
+const ABOUT_IMAGE = '/place/place6.jpeg';
 
 export default function About() {
   return (
@@ -18,10 +11,10 @@ export default function About() {
       component="section"
       id="sobre"
       sx={{
-        position: "relative",
+        position: 'relative',
         py: { xs: 8, md: 12 },
-        backgroundColor: "rgba(15, 26, 51, 0.03)",
-        overflow: "hidden",
+        backgroundColor: 'rgba(15, 26, 51, 0.03)',
+        overflow: 'hidden',
       }}
     >
       <Container maxWidth="lg">
@@ -36,7 +29,7 @@ export default function About() {
             align="center"
             className="gold-gradient-text"
             sx={{
-              fontSize: { xs: "2rem", md: "3rem" },
+              fontSize: { xs: '2rem', md: '3rem' },
               fontWeight: 700,
               mb: { xs: 2, md: 1.05 },
             }}
@@ -56,17 +49,16 @@ export default function About() {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "1rem", md: "1.4rem" },
+                  fontSize: { xs: '1rem', md: '1.4rem' },
                   mb: 3,
                   lineHeight: 1.8,
                 }}
               >
-                Na Clínica Naturalize, combinamos expertise odontológica com uma
-                abordagem humana e personalizada. Nosso objetivo é proporcionar
-                tratamentos que elevem sua confiança e qualidade de vida, seja
-                em estética, ortodontia ou implantes. Aqui, cada sorriso recebe
-                atenção exclusiva, focada no seu conforto e no resultado natural
-                que você merece.
+                Na Clínica Naturalize, combinamos expertise odontológica com uma abordagem humana e
+                personalizada. Nosso objetivo é proporcionar tratamentos que elevem sua confiança e
+                qualidade de vida, seja em estética, ortodontia ou implantes. Aqui, cada sorriso
+                recebe atenção exclusiva, focada no seu conforto e no resultado natural que você
+                merece.
               </Typography>
             </motion.div>
           </Grid>
@@ -120,15 +112,14 @@ export default function About() {
                 sx={{
                   fontWeight: 600,
                   mt: 4,
-                  padding: "16px 24px",
-                  backgroundColor: "primary.main",
-                  color: "secondary.main",
+                  padding: '16px 24px',
+                  backgroundColor: 'primary.main',
+                  color: 'secondary.main',
                   borderRadius: 2,
-                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                 }}
               >
-                Naturalize — desperte o melhor do seu sorriso com confiança e
-                naturalidade.
+                Naturalize — desperte o melhor do seu sorriso com confiança e naturalidade.
               </Typography>
             </motion.div>
           </Grid>

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Box, Button, Card, CardContent, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-import { ReactElement } from "react";
-import dynamic from "next/dynamic";
+import { useState } from 'react';
+import { Box, Button, Card, CardContent, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import { ReactElement } from 'react';
+import dynamic from 'next/dynamic';
 
-const EsteticaDialog = dynamic(() => import("./cta/EsteticaDialog"), {
+const EsteticaDialog = dynamic(() => import('./cta/EsteticaDialog'), {
   ssr: false,
-  loading: () => <div style={{ minHeight: "20px" }} />,
+  loading: () => <div style={{ minHeight: '20px' }} />,
 });
 
 interface ServiceItemProps {
@@ -34,35 +34,35 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const getButtonProps = () => {
     switch (item.title) {
-      case "Estética":
+      case 'Estética':
         return {
-          text: "Quero um sorriso mais branco",
+          text: 'Quero um sorriso mais branco',
           action: handleOpenDialog,
-          ariaLabel: "Ver opções de tratamentos estéticos",
+          ariaLabel: 'Ver opções de tratamentos estéticos',
         };
-      case "Ortodontia":
+      case 'Ortodontia':
         return {
-          text: "Ver opções de alinhadores",
-          action: () => scrollToSection("galeria"),
-          ariaLabel: "Ver opções de alinhadores ortodônticos",
+          text: 'Ver opções de alinhadores',
+          action: () => scrollToSection('galeria'),
+          ariaLabel: 'Ver opções de alinhadores ortodônticos',
         };
-      case "Implantes":
+      case 'Implantes':
         return {
-          text: "Consultar implantes",
-          action: () => window.open("https://wa.me/551633711212", "_blank"),
-          ariaLabel: "Consultar sobre implantes no WhatsApp",
+          text: 'Consultar implantes',
+          action: () => window.open('https://wa.me/551633711212', '_blank'),
+          ariaLabel: 'Consultar sobre implantes no WhatsApp',
         };
       default:
         return {
-          text: "Saiba mais",
+          text: 'Saiba mais',
           action: () => {},
-          ariaLabel: "Saiba mais sobre este serviço",
+          ariaLabel: 'Saiba mais sobre este serviço',
         };
     }
   };
@@ -81,22 +81,20 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
         <Card
           elevation={0}
           sx={{
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
             borderRadius: 2,
-            border: "1px solid rgba(209, 183, 143, 0.3)",
-            transition: "all 0.3s ease",
-            "&:hover": {
-              boxShadow: "0 8px 24px rgba(15, 26, 51, 0.1)",
-              transform: "translateY(-8px)",
-              borderColor: "rgba(209, 183, 143, 0.6)",
+            border: '1px solid rgba(209, 183, 143, 0.3)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              boxShadow: '0 8px 24px rgba(15, 26, 51, 0.1)',
+              transform: 'translateY(-8px)',
+              borderColor: 'rgba(209, 183, 143, 0.6)',
             },
           }}
         >
-          <CardContent
-            sx={{ p: 4, flexGrow: 1, display: "flex", flexDirection: "column" }}
-          >
+          <CardContent sx={{ p: 4, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ mb: 2 }}>{item.icon}</Box>
             <Typography
               gutterBottom
@@ -104,7 +102,7 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
               component="h3"
               sx={{
                 fontWeight: 600,
-                color: "primary.main",
+                color: 'primary.main',
                 mb: 2,
               }}
             >
@@ -114,7 +112,7 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
               {item.description}
             </Typography>
 
-            <Box sx={{ mt: "auto" }}>
+            <Box sx={{ mt: 'auto' }}>
               <Button
                 variant="text"
                 color="secondary"
@@ -123,11 +121,11 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
                 aria-label={buttonProps.ariaLabel}
                 sx={{
                   fontWeight: 500,
-                  boxShadow: "0 8px 24px rgba(15, 26, 51,0.2)",
-                  textDecoration: "none",
-                  backgroundColor: "primary.main",
-                  "&:hover": {
-                    backgroundColor: "primary.dark",
+                  boxShadow: '0 8px 24px rgba(15, 26, 51,0.2)',
+                  textDecoration: 'none',
+                  backgroundColor: 'primary.main',
+                  '&:hover': {
+                    backgroundColor: 'primary.dark',
                   },
                 }}
               >
@@ -138,7 +136,7 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
         </Card>
       </motion.div>
 
-      {item.title === "Estética" && (
+      {item.title === 'Estética' && (
         <EsteticaDialog open={dialogOpen} onClose={handleCloseDialog} />
       )}
     </>

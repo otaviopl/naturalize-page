@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Box, Button, Typography, Container } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -50,7 +50,12 @@ export default function ClientHeroAnimation() {
             textShadow: '0 2px 4px rgba(0,0,0,0.1)',
           }}
         >
-          Na Naturalize, nosso compromisso vai muito além de cuidar do seu sorriso. Aqui, prezamos pela sua segurança, seu conforto e, principalmente, por oferecer um preço justo. Cada detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o seu atendimento. Acreditamos que a odontologia pode (e deve) ser acessível, humana e de alta qualidade. Na Naturalize, você encontra profissionais dedicados, tecnologia de ponta e um ambiente feito para você se sentir em casa.
+          Na Naturalize, nosso compromisso vai muito além de cuidar do seu sorriso. Aqui, prezamos
+          pela sua segurança, seu conforto e, principalmente, por oferecer um preço justo. Cada
+          detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o
+          seu atendimento. Acreditamos que a odontologia pode (e deve) ser acessível, humana e de
+          alta qualidade. Na Naturalize, você encontra profissionais dedicados, tecnologia de ponta
+          e um ambiente feito para você se sentir em casa.
         </Typography>
       </motion.div>
 
@@ -84,7 +89,7 @@ export default function ClientHeroAnimation() {
           >
             Agendar sua avaliação
           </Button>
-          
+
           <Button
             variant="outlined"
             size="large"
@@ -111,4 +116,4 @@ export default function ClientHeroAnimation() {
       </motion.div>
     </Container>
   );
-} 
+}

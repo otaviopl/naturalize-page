@@ -1,7 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "plugins": ["@next/eslint-plugin-next"],
-  "rules": {
-    
-  }
-} 
+  "rules": {}
+}
