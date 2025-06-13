@@ -10,7 +10,7 @@ const professionals = [
     image: '/mayuri.jpeg',
     imagePosition: '50% 30%',
     description:
-      'Especialista em facetas de resina com mais de 10 anos de experiência e centenas de sorrisos transformados.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique ultricies dui ac sollicitudin. Vestibulum.',
   },
   {
     name: 'Dr. Luiz Fernando Junior',
@@ -18,7 +18,7 @@ const professionals = [
     image: '/luiz.jpeg',
     imagePosition: '50% 40%',
     description:
-      'Doutor em implantodontia com formação internacional e mais de 2000 implantes realizados com sucesso.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed massa sit amet libero finibus.',
   },
 ];
 
@@ -69,6 +69,7 @@ export default function Professionals() {
               <Box
                 sx={{
                   className: 'professional-card',
+                  width: 'fit-content',
                   borderRadius: 3,
                   boxShadow: '0 8px 24px rgba(130, 111, 83, 0.30)',
                   background: '#fff',
