@@ -10,7 +10,7 @@ const professionals = [
     image: '/mayuri.jpeg',
     imagePosition: '50% 30%',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique ultricies dui ac sollicitudin. Vestibulum.',
+      'Ortodontia e Estética | CRO-SP 169943 | Especialista em alinhamento dental, estética do sorriso e reabilitação oral.',
   },
   {
     name: 'Dr. Luiz Fernando Junior',
@@ -18,7 +18,7 @@ const professionals = [
     image: '/luiz.jpeg',
     imagePosition: '50% 40%',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed massa sit amet libero finibus.',
+      'Implante e Cirurgia | CRO-SP 170301 | Especialista em reabilitação oral, implantes dentários e estética do sorriso.',
   },
 ];
 
