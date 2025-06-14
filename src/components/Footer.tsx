@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Box, Container, Grid, Typography, Stack, Link } from '@mui/material';
-import { Instagram, MapPin, Clock, Phone } from 'lucide-react';
+import { Box, Container, Grid, Typography, Stack, Link, IconButton } from '@mui/material';
+import { Instagram } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <Box
       component="footer"
@@ -17,87 +17,166 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={6}>
-          <Grid item xs={12} md={4}>
-            <Box sx={{ mb: 3 }}>
+        <Grid container spacing={{ xs: 4, md: 6 }} justifyContent="center" sx={{ mt: 0, mb: 0 }}>
+          {/* Coluna 1: Logo, descrição, redes sociais */}
+          <Grid item xs={12} md={4} sx={{ mb: { xs: 4, md: 0 } }}>
+            <Box sx={{ mb: 4 }}>
               <Logo sx={{ filter: 'brightness(1.1)' }} />
             </Box>
-            <Typography variant="body2" sx={{ opacity: 0.9, mb: 1, maxWidth: 300, fontSize: { xs: '0.8rem', md: '1rem' } }}>
-            Referência em implantes e estética. Valorizamos seu sorriso com naturalidade!
+            <Typography
+              variant="body2"
+              sx={{
+                opacity: 0.9,
+                mb: 2,
+                maxWidth: 350,
+                fontSize: { xs: '0.8rem', md: '1rem' },
+                textAlign: { xs: 'center', md: 'left' },
+              }}
+            >
+              Transformando sorrisos com excelência, tecnologia e cuidado personalizado. Nossa
+              missão é proporcionar tratamentos odontológicos de alta qualidade em um ambiente
+              acolhedor e confortável.
             </Typography>
-          </Grid>
-          
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" className="gold-gradient-text" gutterBottom>
-              Localização e Horários
-            </Typography>
-            
-            <Stack spacing={2}>
-              <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                <MapPin size={20} style={{ marginRight: 10, marginTop: 4 }} />
-                <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                R. São Sebastião, 1633 - Centro, São Carlos - SP, 13560-230
-                </Typography>
-              </Box>
-              
-              <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                <Clock size={20} style={{ marginRight: 10, marginTop: 4 }} />
-                <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                  Segunda a Sexta: 8h às 19h<br />
-                  Sábado: 8:30h às 13h
-                </Typography>
-              </Box>
+            <Stack
+              direction="row"
+              spacing={2}
+              sx={{
+                mt: 2,
+                mb: { xs: 2, md: 0 },
+                justifyContent: { xs: 'center', md: 'flex-start' },
+              }}
+            >
+              <IconButton
+                component="a"
+                href="https://www.instagram.com/naturalizeodontologia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  backgroundColor: 'rgba(255,255,255,0.08)',
+                  color: 'white',
+                  '&:hover': { backgroundColor: 'rgba(255,255,255,0.18)' },
+                }}
+              >
+                <Instagram size={20} />
+              </IconButton>
             </Stack>
           </Grid>
-          
-          <Grid item xs={12} md={4}>
+
+          {/* Coluna 2: Links rápidos */}
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: { xs: 'center', md: 'flex-end' },
+              textAlign: { xs: 'center', md: 'right' },
+              mb: { xs: 4, md: 0 },
+            }}
+          >
             <Typography variant="h6" className="gold-gradient-text" gutterBottom>
-              Contato
+              Links Rápidos
             </Typography>
-            
-            <Stack spacing={2}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Phone size={20} style={{ marginRight: 10 }} />
-                <Link 
-                  href="tel:+551633711212" 
-                  color="inherit" 
-                  underline="hover"
-                  sx={{ opacity: 0.9 }}
-                >
-                  (16) 3371-1212
-                </Link>
-              </Box>
-              
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Instagram size={20} style={{ marginRight: 10 }} />
-                <Link 
-                  href="https://www.instagram.com/naturalizeodontologia/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  color="inherit" 
-                  underline="hover"
-                  sx={{ opacity: 0.9 }}
-                >
-                  @naturalizeodontologia
-                </Link>
-              </Box>
+            <Stack
+              spacing={1}
+              sx={{
+                width: { xs: '100%', md: 'auto' },
+                alignItems: { xs: 'center', md: 'flex-end' },
+              }}
+            >
+              <Link
+                href="#hero"
+                color="inherit"
+                underline="hover"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Início
+              </Link>
+              <Link href="#servicos" color="inherit" underline="hover">
+                Serviços
+              </Link>
+              <Link href="#profissionais" color="inherit" underline="hover">
+                Equipe
+              </Link>
+              <Link href="#depoimentos" color="inherit" underline="hover">
+                Depoimentos
+              </Link>
+              <Link href="#contato" color="inherit" underline="hover">
+                Contato
+              </Link>
+            </Stack>
+          </Grid>
+
+          {/* Coluna 3: Serviços */}
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: { xs: 'center', md: 'flex-end' },
+              textAlign: { xs: 'center', md: 'right' },
+            }}
+          >
+            <Typography variant="h6" className="gold-gradient-text" gutterBottom>
+              Serviços
+            </Typography>
+            <Stack
+              spacing={1}
+              sx={{
+                width: { xs: '100%', md: 'auto' },
+                alignItems: { xs: 'center', md: 'flex-end' },
+              }}
+            >
+              <Typography variant="body2">Odontologia Estética</Typography>
+              <Typography variant="body2">Implantes Dentários</Typography>
+              <Typography variant="body2">Ortodontia</Typography>
+              <Typography variant="body2">Clínica Geral</Typography>
+              <Typography variant="body2">Odontopediatria</Typography>
+              <Typography variant="body2">Tratamentos Especializados</Typography>
             </Stack>
           </Grid>
         </Grid>
-        
+
+        {/* Rodapé inferior */}
         <Box
           sx={{
             mt: 6,
             pt: 3,
             borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-            textAlign: 'center',
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 2,
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="body2" sx={{ opacity: 0.7 }}>
-            © {currentYear} Clínica Naturalize. Todos os direitos reservados.
+          <Typography variant="body2" sx={{ opacity: 0.7, flex: 1 }}>
+            © {currentYear} Naturalize Odontologia. Todos os direitos reservados.
           </Typography>
+          <Typography variant="body2" sx={{ opacity: 0.7, flex: 1, textAlign: 'center' }}>
+            Feito com <span style={{ color: '#FFD700' }}>♥</span> por 4Dev
+          </Typography>
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{ flex: 1, justifyContent: { xs: 'center', md: 'flex-end' } }}
+          >
+            <Link href="#" color="inherit" underline="hover" sx={{ opacity: 0.7 }}>
+              Política de Privacidade
+            </Link>
+            <Link href="#" color="inherit" underline="hover" sx={{ opacity: 0.7 }}>
+              Termos de Uso
+            </Link>
+          </Stack>
         </Box>
       </Container>
     </Box>
   );
-} 
+}

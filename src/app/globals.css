@@ -1,9 +1,9 @@
 :root {
-  --navy-main: #262D42;
-  --navy-dark: #1E2333;
-  --gold: #E5C389;
-  --gold-light: #F5D9A9;
-  --wood-brown: #826F53;
+  --navy-main: #262d42;
+  --navy-dark: #1e2333;
+  --gold: #e5c389;
+  --gold-light: #f5d9a9;
+  --wood-brown: #826f53;
 }
 
 * {
@@ -39,4 +39,4 @@ a {
 /* Smooth animations */
 .framer-motion-section {
   will-change: transform, opacity;
-} 
+}

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { WhatsappLogo } from '@phosphor-icons/react';
 import SocialMediaButton from './SocialMediaButton';
@@ -13,4 +13,4 @@ export default function WhatsAppWidget() {
       hoverColor="#128C7E"
     />
   );
-} 
+}

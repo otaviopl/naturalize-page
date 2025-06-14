@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { AppBar, Box, Button, Container, Toolbar } from '@mui/material';
 import Logo from './Logo';
@@ -39,4 +39,4 @@ export default function Header() {
       </Container>
     </AppBar>
   );
-} 
+}

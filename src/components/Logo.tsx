@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Box, SxProps, Theme } from '@mui/material';
 import Image from 'next/image';
@@ -9,23 +9,24 @@ interface LogoProps {
 
 export default function Logo({ sx }: LogoProps) {
   return (
-    <Box 
+    <Box
       sx={{
         width: { xs: '320px', sm: '400px', md: '500px' }, // AUMENTA a largura
-        height: { xs: '70px', sm: '90px', md: '110px' },  // AUMENTA a altura proporcional
-        ...sx
+        height: { xs: '70px', sm: '90px', md: '100px' }, // AUMENTA a altura proporcional
+        ...sx,
       }}
     >
       <Image
-        src="/logo/MARCA-esticada.png"
+        src="/logo/Logotipo-horizontal.png"
         alt="Naturalize"
         fill
         style={{
+          padding: '10px 0px 10px 0px',
           objectFit: 'contain',
-          objectPosition: 'left center'
+          objectPosition: 'left center',
         }}
         priority
       />
     </Box>
   );
-} 
+}

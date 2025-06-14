@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Box, Fab, Tooltip, useMediaQuery, useTheme } from '@mui/material';
 import { Calendar } from 'lucide-react';
@@ -6,7 +6,7 @@ import { Calendar } from 'lucide-react';
 export default function StickyMobileCTA() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 'sm' is 600px
-  
+
   if (!isMobile) return null;
 
   return (
@@ -25,7 +25,7 @@ export default function StickyMobileCTA() {
           href="https://calendly.com/naturalize/avaliacao"
           target="_blank"
           rel="noopener noreferrer"
-          sx={{ 
+          sx={{
             boxShadow: '0 4px 14px rgba(209, 183, 143, 0.4)',
             transition: 'all 0.3s ease',
             '&:hover': {
@@ -39,4 +39,4 @@ export default function StickyMobileCTA() {
       </Tooltip>
     </Box>
   );
-} 
+}
