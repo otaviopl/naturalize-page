@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { InstagramLogo } from '@phosphor-icons/react';
 import SocialMediaButton from './SocialMediaButton';
@@ -14,4 +14,4 @@ export default function InstagramWidget() {
       position={1}
     />
   );
-} 
+}

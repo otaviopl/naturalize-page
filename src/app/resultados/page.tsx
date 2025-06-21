@@ -2,7 +2,8 @@ import { Box, Container, Typography } from '@mui/material';
 
 export const metadata = {
   title: 'Resultados | Clínica Naturalize',
-  description: 'Veja os resultados dos tratamentos da Clínica Naturalize - Antes e Depois de nossos procedimentos estéticos, ortodônticos e implantes.',
+  description:
+    'Veja os resultados dos tratamentos da Clínica Naturalize - Antes e Depois de nossos procedimentos estéticos, ortodônticos e implantes.',
 };
 
 export default function ResultadosPage() {
@@ -21,15 +22,16 @@ export default function ResultadosPage() {
         >
           Nossos Resultados
         </Typography>
-        
-        <Typography 
-          variant="body1" 
+
+        <Typography
+          variant="body1"
           align="center"
           sx={{ fontSize: '1.2rem', maxWidth: '800px', mx: 'auto' }}
         >
-          Em breve compartilharemos aqui os resultados dos tratamentos realizados na Clínica Naturalize.
+          Em breve compartilharemos aqui os resultados dos tratamentos realizados na Clínica
+          Naturalize.
         </Typography>
       </Container>
     </Box>
   );
-} 
+}

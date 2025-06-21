@@ -26,19 +26,23 @@ Website para a Clínica Naturalize, desenvolvido com Next.js, Material UI e Fram
 Para aumentar as taxas de conversão sem comprometer o design minimalista, adicionamos CTAs estratégicos:
 
 1. **Hero com botão secundário**
+
    - Permite que visitantes explorem serviços antes de agendar, reduzindo fricção
    - Scroll suave mantém o usuário engajado sem sair da página
 
 2. **Botões nos cards de serviços**
+
    - CTAs específicos por tipo de tratamento aumentam relevância
    - Diálogo de estética mostra benefícios visuais imediatos
    - Ação de WhatsApp encurta o caminho para conversão em implantes
 
 3. **Link no About**
+
    - Aproveita o momento de conexão emocional após leitura da missão
    - WhatsApp oferece contato imediato e informal
 
 4. **Botão em Testimonials**
+
    - Capitaliza na prova social com chamada para resultados
    - Cria expectativa para expansão futura do site
 
@@ -47,6 +51,7 @@ Para aumentar as taxas de conversão sem comprometer o design minimalista, adici
    - Específico para experiência mobile sem poluir desktop
 
 Todos os CTAs mantêm a estética minimalista com:
+
 - Transições suaves (≤ 400ms)
 - Contraste adequado para acessibilidade
 - Carregamento dinâmico para não afetar performance
@@ -57,7 +62,9 @@ Todos os CTAs mantêm a estética minimalista com:
 Este projeto utiliza uma arquitetura moderna baseada em React Server Components, separando claramente componentes de servidor e cliente:
 
 ### Server Components
+
 Os componentes de servidor são renderizados no servidor e enviados ao cliente como HTML. Eles não carregam JavaScript desnecessário e melhoram o desempenho.
+
 - `layout.tsx`
 - `Hero.tsx`
 - `Services.tsx`
@@ -65,7 +72,9 @@ Os componentes de servidor são renderizados no servidor e enviados ao cliente c
 - `Footer.tsx`
 
 ### Client Components
+
 Componentes que precisam de interatividade, estado ou efeitos do navegador são marcados com `"use client"` e carregados no cliente.
+
 - `ClientProviders.tsx` (para ThemeProvider)
 - `ClientServiceItem.tsx` (para animações)
 - `ClientHeroAnimation.tsx` (para animações)
@@ -75,7 +84,9 @@ Componentes que precisam de interatividade, estado ou efeitos do navegador são 
 - `cta/StickyMobileCTA.tsx` (CTA flutuante para mobile)
 
 ### Server Actions
+
 As ações do formulário são processadas no servidor usando React Server Actions:
+
 - `src/app/contact/actions.ts`
 
 ## Estrutura do Projeto
@@ -114,10 +125,21 @@ npm run lint
 
 Acesse `http://localhost:3000` para visualizar o site.
 
+## Formatação automática de código (Prettier + Husky)
+
+Este projeto utiliza [Prettier](https://prettier.io/) para formatação automática de código. Para garantir que todo o código siga o mesmo padrão, usamos [Husky](https://typicode.github.io/husky) e [lint-staged](https://github.com/okonet/lint-staged) para rodar o Prettier automaticamente antes de cada commit.
+
+- **Formatar manualmente:**
+  ```bash
+  npm run format
+  ```
+- **Pré-commit automático:**
+  Sempre que você rodar `git commit`, o Prettier será executado nos arquivos alterados automaticamente. Se algum arquivo for reformatado, será necessário adicioná-lo novamente ao commit.
+
 ## Deploy
 
 Este projeto está configurado para deploy na Vercel. Conecte o repositório à sua conta Vercel para deploy automático a cada push.
 
 ## Licença
 
-Todos os direitos reservados © Clínica Naturalize 
+Todos os direitos reservados © Clínica Naturalize
