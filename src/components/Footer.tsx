@@ -138,6 +138,7 @@ export default function Footer() {
               <Typography variant="body2">Ortodontia</Typography>
               <Typography variant="body2">Clínica Geral</Typography>
               <Typography variant="body2">Odontopediatria</Typography>
+              <Typography variant="body2">Endodontia</Typography>
               <Typography variant="body2">Tratamentos Especializados</Typography>
             </Stack>
           </Grid>
