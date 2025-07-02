@@ -11,6 +11,11 @@ const EsteticaDialog = dynamic(() => import('./cta/EsteticaDialog'), {
   loading: () => <div style={{ minHeight: '20px' }} />,
 });
 
+const FacetasDialog = dynamic(() => import('./cta/FacetasDialog'), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: '20px' }} />,
+});
+
 interface ServiceItemProps {
   item: {
     icon: ReactElement;
@@ -57,6 +62,12 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
           text: 'Consultar implantes',
           action: () => window.open('https://wa.me/551633711212', '_blank'),
           ariaLabel: 'Consultar sobre implantes no WhatsApp',
+        };
+      case 'Facetas':
+        return {
+          text: 'Saiba mais',
+          action: handleOpenDialog,
+          ariaLabel: 'Comparativo antes e depois de facetas',
         };
       default:
         return {
@@ -139,6 +150,7 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
       {item.title === 'Estética' && (
         <EsteticaDialog open={dialogOpen} onClose={handleCloseDialog} />
       )}
+      {item.title === 'Facetas' && <FacetasDialog open={dialogOpen} onClose={handleCloseDialog} />}
     </>
   );
 }
