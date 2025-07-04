@@ -38,7 +38,7 @@ export default function FacetasDialog({ open, onClose }: FacetasDialogProps) {
           pb: 2,
         }}
       >
-        Antes e Depois - Facetas
+        Antes e Depois
       </DialogTitle>
             <DialogContent sx={{ py: 4 }}>
         <FacetasCarousel
