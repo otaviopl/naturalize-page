@@ -1,11 +1,27 @@
 'use client';
 
-import { Box, Container, Grid, Typography, Card, CardMedia } from '@mui/material';
+import { Box, Container, Grid, Typography, Card } from '@mui/material';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const ABOUT_IMAGE = '/place/place6.jpeg';
+const ABOUT_IMAGES = [
+  '/place/place2.jpeg',
+  '/place/place3.jpeg',
+  '/place/place4.jpeg',
+  '/place/place5.jpeg',
+  '/place/place6.jpeg',
+];
 
 export default function About() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % ABOUT_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <Box
       component="section"
@@ -77,14 +93,24 @@ export default function About() {
                     borderRadius: 2,
                     position: 'relative',
                     overflow: 'hidden',
+                    height: { xs: 200, md: 300 },
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    image={ABOUT_IMAGE}
-                    alt="Clínica Naturalize"
-                    sx={{ height: { xs: 200, md: 300 } }}
-                  />
+                  {ABOUT_IMAGES.map((src, idx) => (
+                    <Image
+                      key={src}
+                      src={src}
+                      alt={`Clínica Naturalize - Foto ${idx + 1}`}
+                      fill
+                      priority={idx === 0}
+                      style={{
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        opacity: idx === current ? 1 : 0,
+                        transition: 'opacity 1s ease',
+                      }}
+                    />
+                  ))}
                 </Card>
               </Box>
               <Typography
