@@ -86,26 +86,6 @@ export default function About() {
                     sx={{ height: { xs: 200, md: 300 } }}
                   />
                 </Card>
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: -10,
-                    left: -24,
-                    bgcolor: 'primary.main', // amarelo
-                    color: 'secondary.main',
-                    borderRadius: 2,
-                    px: 3,
-                    py: 1,
-                    boxShadow: 3,
-                    fontWeight: 500,
-                    fontSize: '1.1rem',
-                    zIndex: 2,
-                    minWidth: 120,
-                    textAlign: 'center',
-                  }}
-                >
-                  Desde 2010
-                </Box>
               </Box>
               <Typography
                 variant="h6"
