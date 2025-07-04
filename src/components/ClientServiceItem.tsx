@@ -21,6 +21,7 @@ interface ServiceItemProps {
     icon: ReactElement;
     title: string;
     description: string;
+    btnName: string;
   };
   index: number;
 }
@@ -59,19 +60,19 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
         };
       case 'Implantes':
         return {
-          text: 'Consultar implantes',
+          text: item.btnName,
           action: () => window.open('https://wa.me/551633711212', '_blank'),
           ariaLabel: 'Consultar sobre implantes no WhatsApp',
         };
       case 'Facetas':
         return {
-          text: 'Saiba mais',
+          text: item.btnName,
           action: handleOpenDialog,
           ariaLabel: 'Comparativo antes e depois de facetas',
         };
       default:
         return {
-          text: 'Saiba mais',
+          text: item.btnName,
           action: () => {},
           ariaLabel: 'Saiba mais sobre este serviço',
         };
