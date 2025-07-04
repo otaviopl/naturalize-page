@@ -6,11 +6,8 @@ import {
   DialogContent,
   DialogActions,
   Button,
-  Grid,
-  Box,
-  Typography,
 } from '@mui/material';
-import Image from 'next/image';
+import FacetasCarousel from './FacetasCarousel';
 
 interface FacetasDialogProps {
   open: boolean;
@@ -22,9 +19,14 @@ export default function FacetasDialog({ open, onClose }: FacetasDialogProps) {
     <Dialog
       open={open}
       onClose={onClose}
-      maxWidth="md"
       aria-labelledby="facetas-dialog-title"
       aria-describedby="facetas-dialog-description"
+      PaperProps={{ 
+        sx: { 
+          width: { xs: 300, sm: 350, md: 600 },
+          maxWidth: '95vw' 
+        } 
+      }}
     >
       <DialogTitle
         id="facetas-dialog-title"
@@ -38,51 +40,19 @@ export default function FacetasDialog({ open, onClose }: FacetasDialogProps) {
       >
         Antes e Depois - Facetas
       </DialogTitle>
-      <DialogContent sx={{ py: 4 }}>
-        <Grid container spacing={3} id="facetas-dialog-description">
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                position: 'relative',
-                width: '100%',
-                height: 250,
-                borderRadius: 2,
-                overflow: 'hidden',
-              }}
-            >
-              <Image
-                src="/images/services/faceta-main.jpeg"
-                alt="Antes do tratamento"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </Box>
-            <Typography align="center" variant="body2" sx={{ mt: 1 }}>
-              Antes
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                position: 'relative',
-                width: '100%',
-                height: 250,
-                borderRadius: 2,
-                overflow: 'hidden',
-              }}
-            >
-              <Image
-                src="/images/services/faceta-reserve.jpeg"
-                alt="Depois do tratamento"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </Box>
-            <Typography align="center" variant="body2" sx={{ mt: 1 }}>
-              Depois
-            </Typography>
-          </Grid>
-        </Grid>
+            <DialogContent sx={{ py: 4 }}>
+        <FacetasCarousel
+          images={[
+            {
+              src: '/images/services/faceta-reserve.jpeg',
+              alt: 'Tratamento 1- Facetas',
+            },
+            {
+              src: '/images/services/faceta-main.jpeg',
+              alt: 'Tratamento 2 - Facetas',
+            },
+          ]}
+        />
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 3 }}>
         <Button
