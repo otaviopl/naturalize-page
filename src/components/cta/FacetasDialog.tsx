@@ -48,6 +48,10 @@ export default function FacetasDialog({ open, onClose }: FacetasDialogProps) {
               alt: 'Tratamento 1- Facetas',
             },
             {
+              src: '/images/services/faceta_before_after_3.jpeg',
+              alt: 'Tratamento 3 - Facetas',
+            },
+            {
               src: '/images/services/faceta-main.jpeg',
               alt: 'Tratamento 2 - Facetas',
             },
