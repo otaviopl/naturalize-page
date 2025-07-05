@@ -73,8 +73,8 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
       default:
         return {
           text: item.btnName,
-          action: () => {},
-          ariaLabel: 'Saiba mais sobre este serviço',
+          action: () => window.open('https://wa.me/551633711212', '_blank'),
+          ariaLabel: 'Saiba mais sobre este serviço no WhatsApp',
         };
     }
   };
