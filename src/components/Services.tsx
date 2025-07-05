@@ -10,6 +10,7 @@ const serviceItems = [
     description:
       'Transforme seu sorriso com facetas de porcelana ou resina. Uma solução rápida, moderna e minimamente invasiva para corrigir cor, forma e pequenas imperfeições nos dentes.',
     image: '/images/services/faceta-main.jpeg',
+    btnName: 'Antes e depois',
   },
   {
     icon: <Smile size={48} color="#d1b78f" />,
@@ -17,6 +18,7 @@ const serviceItems = [
     description:
       'Devolva a saúde e beleza dos seus dentes com restaurações estéticas em resina. Tratamentos precisos, duráveis e praticamente invisíveis, realizados com técnicas avançadas.',
     image: '/images/services/restauracao-main.jpeg',
+    btnName: 'Saiba mais',
   },
   {
     icon: <Stethoscope size={48} color="#d1b78f" />,
@@ -24,18 +26,21 @@ const serviceItems = [
     description:
       'Recupere dentes perdidos com implantes dentários de última geração. Mais segurança, conforto e estética para sorrir com confiança todos os dias.',
     image: '/images/services/implante-main.jpeg',
+    btnName: 'Consultar implantes',
   },
   {
     icon: <Activity size={48} color="#d1b78f" />,
     title: 'Cirurgias em geral',
     description: 'Tratamentos cirúrgicos planejados com precisão e cuidado, aliviar dores e restaurar seu bem-estar. Da remoção de dentes comprometidos a procedimentos reconstrutivos, cada detalhe é pensado para sua segurança e tranquilidade.',
     image: '/images/services/cirurgias-em-geral-main.jpeg',
+    btnName: 'Saiba mais',
   },
   {
     icon: <UserCheck size={48} color="#d1b78f" />,
     title: 'Clínico geral',
     description: 'Cuidamos da sua saúde bucal com atenção integral. Avaliações, limpezas, diagnósticos e tratamentos preventivos pensados para manter seu sorriso bonito e saudável em todas as fases da vida.',
     image: '/images/services/clinico-geral-main.jpeg',
+    btnName: 'Saiba mais',
   },
 ];
 
