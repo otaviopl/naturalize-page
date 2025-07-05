@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 

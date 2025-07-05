@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '@/theme';
 import dynamic from 'next/dynamic';
-import ImageWidget from './ImageWidget';
 import ChatWidgetGroup from './ChatWidgetGroup';
 
 const InstagramWidget = dynamic(() => import('./InstagramWidget'), { ssr: false });
