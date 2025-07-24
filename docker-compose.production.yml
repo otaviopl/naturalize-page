@@ -1,0 +1,17 @@
+services:
+  front-naturalize:
+    build:
+      context: .
+    restart: always
+    networks:
+      - traefik-portainer_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.front-naturalize.loadbalancer.server.port=3000"
+      - "traefik.http.routers.front-naturalize.rule=Host(`clinicanaturalize.com.br`)"
+      - "traefik.http.routers.front-naturalize.entrypoints=websecure"
+      - "traefik.http.routers.front-naturalize.tls.certresolver=letsencrypt"
+
+networks:
+  traefik-portainer_proxy:
+    external: true
