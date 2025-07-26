@@ -33,7 +33,8 @@ export default function Footer() {
                 textAlign: { xs: 'center', md: 'left' },
               }}
             >
-              Na Naturalize Odontologia, clínica odontológica em São Carlos, transformamos sorrisos com excelência, tecnologia de ponta e cuidado personalizado. Nossa missão é oferecer tratamentos odontológicos acessíveis e de alta qualidade em um ambiente acolhedor e confortável.
+              Na Naturalize Odontologia, clínica odontológica em São Carlos, transformamos sorrisos com excelência, tecnologia de ponta e cuidado personalizado.
+              Nossa missão é oferecer tratamentos odontológicos acessíveis e de alta qualidade em um ambiente acolhedor e confortável.
             </Typography>
             <Stack
               direction="row"
