@@ -17,9 +17,9 @@ export default function Header() {
         backgroundColor: 'rgba(38, 45, 66, 0.95)',
       }}
     >
-      <Container maxWidth="lg" sx={{ px: isMobile ? 1.5 : 3 }}>
-        <Toolbar disableGutters sx={{ py: 1 }}>
-          <Logo sx={{ px: isMobile ? 0 : 2 }} />
+      <Container maxWidth="lg">
+        <Toolbar disableGutters sx={{ py: 1, minHeight: { xs: 70, sm: 90, md: 100 } }}>
+          <Logo />
           <Box sx={{ flexGrow: 1 }} />
           <Button
             variant="contained"
