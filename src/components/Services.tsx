@@ -8,7 +8,7 @@ const serviceItems = [
     icon: <Sparkles size={48} color="#d1b78f" />,
     title: 'Facetas',
     description:
-      'Transforme seu sorriso saudável com facetas de porcelana ou resina na nossa clínica odontológica em São Carlos. Uma solução rápida, moderna e minimamente invasiva para corrigir cor, forma e pequenas imperfeições nos dentes.',
+      'Transforme seu sorriso saudável com facetas de porcelana ou resina na nossa clínica odontológica. Uma solução rápida, moderna e minimamente invasiva para corrigir cor, forma e pequenas imperfeições nos dentes.',
     image: '/images/services/faceta-main.jpeg',
     btnName: 'Antes e depois',
   },
@@ -16,7 +16,7 @@ const serviceItems = [
     icon: <Smile size={48} color="#d1b78f" />,
     title: 'Restaurações',
     description:
-      'Devolva a saúde e beleza do seu sorriso saudável com restaurações estéticas em resina. Tratamentos precisos, duráveis e praticamente invisíveis, realizados na Naturalize Odontologia por dentistas em São Carlos.',
+      'Devolva a saúde e beleza do seu sorriso saudável com restaurações estéticas em resina. Tratamentos precisos, duráveis e praticamente invisíveis!',
     image: '/images/services/restauracao-main.jpeg',
     btnName: 'Antes e depois',
   },
@@ -31,7 +31,7 @@ const serviceItems = [
   {
     icon: <Activity size={48} color="#d1b78f" />,
     title: 'Cirurgias em geral',
-    description: 'Tratamentos cirúrgicos planejados com precisão e cuidado para aliviar dores e restaurar seu bem-estar. Cada detalhe é pensado para sua segurança e tranquilidade na Naturalize Odontologia, clínica odontológica em São Carlos.',
+    description: 'Tratamentos cirúrgicos planejados com precisão e cuidado para aliviar dores e restaurar seu bem-estar. Cada detalhe é pensado para sua segurança e tranquilidade!',
     image: '/images/services/cirurgias-em-geral-main.jpeg',
     btnName: 'Saiba mais',
   },
