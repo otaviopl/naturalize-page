@@ -16,6 +16,16 @@ const FacetasDialog = dynamic(() => import('./cta/FacetasDialog'), {
   loading: () => <div style={{ minHeight: '20px' }} />,
 });
 
+const RestauracoesDialog = dynamic(() => import('./cta/RestauracoesDialog'), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: '20px' }} />,
+});
+
+const ImplantesDialog = dynamic(() => import('./cta/ImplantesDialog'), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: '20px' }} />,
+});
+
 interface ServiceItemProps {
   item: {
     icon: ReactElement;
@@ -58,17 +68,23 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
           action: () => scrollToSection('galeria'),
           ariaLabel: 'Ver opções de alinhadores ortodônticos',
         };
-      case 'Implantes':
-        return {
-          text: item.btnName,
-          action: () => window.open('https://wa.me/551633711212', '_blank'),
-          ariaLabel: 'Consultar sobre implantes no WhatsApp',
-        };
       case 'Facetas':
         return {
           text: item.btnName,
           action: handleOpenDialog,
           ariaLabel: 'Comparativo antes e depois de facetas',
+        };
+      case 'Restaurações':
+        return {
+          text: 'Antes e depois',
+          action: handleOpenDialog,
+          ariaLabel: 'Comparativo antes e depois de restaurações',
+        };
+      case 'Implantes':
+        return {
+          text: 'Antes e depois',
+          action: handleOpenDialog,
+          ariaLabel: 'Comparativo antes e depois de implantes',
         };
       default:
         return {
@@ -152,6 +168,10 @@ export default function ClientServiceItem({ item, index }: ServiceItemProps) {
         <EsteticaDialog open={dialogOpen} onClose={handleCloseDialog} />
       )}
       {item.title === 'Facetas' && <FacetasDialog open={dialogOpen} onClose={handleCloseDialog} />}
+      {item.title === 'Restaurações' && (
+        <RestauracoesDialog open={dialogOpen} onClose={handleCloseDialog} />
+      )}
+      {item.title === 'Implantes' && <ImplantesDialog open={dialogOpen} onClose={handleCloseDialog} />}
     </>
   );
 }

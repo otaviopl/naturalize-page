@@ -1,9 +1,16 @@
 'use client';
 
-import { Box, Button, Typography, Container } from '@mui/material';
+import { Box, Button, Typography, Container, useMediaQuery, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 
 export default function ClientHeroAnimation() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const fullText = `Na Naturalize Odontologia, clínica odontológica em São Carlos, nosso compromisso vai muito além de cuidar do seu sorriso saudável. Aqui, prezamos pela sua segurança, conforto e, principalmente, por oferecer odontologia acessível e preço justo. Cada detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o seu atendimento. Acreditamos que a odontologia pode (e deve) ser humana, de alta qualidade e acessível. Na Naturalize Odontologia, você contará com dentistas em São Carlos altamente capacitados, tecnologia de ponta e um ambiente feito para você se sentir em casa. Se você procura por tratamentos odontológicos a um preço justo, venha conhecer nossa clínica e sorrir com confiança!`;
+
+  const mobileText = `Na Naturalize Odontologia, clínica odontológica em São Carlos, cuidamos do seu sorriso com qualidade, conforto e tecnologia de ponta em um ambiente feito para você se sentir em casa. Se você procura por tratamentos odontológicos a um preço justo, venha conhecer nossa clínica e sorrir com confiança vai ser um prazer te atender!`;
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -50,12 +57,7 @@ export default function ClientHeroAnimation() {
             textShadow: '0 2px 4px rgba(0,0,0,0.1)',
           }}
         >
-          Na Naturalize Odontologia, clínica odontológica em São Carlos, nosso compromisso vai muito além de cuidar do seu sorriso saudável. 
-          Aqui, prezamos pela sua segurança, conforto e, principalmente, por oferecer odontologia acessível e preço justo. 
-          Cada detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o seu atendimento.
-          Acreditamos que a odontologia pode (e deve) ser humana, de alta qualidade e acessível. 
-          Na Naturalize Odontologia, você contará com dentistas em São Carlos altamente capacitados, tecnologia de ponta e um ambiente feito para você se sentir em casa. 
-          Se você procura por tratamentos odontológicos a um preço justo, venha conhecer nossa clínica e sorrir com confiança!
+          {isMobile ? mobileText : fullText}
         </Typography>
       </motion.div>
 

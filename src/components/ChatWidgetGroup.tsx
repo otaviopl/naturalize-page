@@ -41,7 +41,7 @@ export default function ChatWidgetGroup() {
       <ChatBalloon visible={visible} onClose={handleClose} />
       {visible && (
         <ImageWidget
-          imageSrc="/mayuri.jpeg"
+          imageSrc="/sophia.png"
           alt="Logo Naturalize"
           href="https://wa.me/551633711212"
           backgroundColor="#1976d2"
