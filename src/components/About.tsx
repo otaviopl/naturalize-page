@@ -50,7 +50,7 @@ export default function About() {
               mb: { xs: 2, md: 1.05 },
             }}
           >
-            Sobre Nós
+            Sobre a Naturalize Odontologia
           </Typography>
         </motion.div>
 
@@ -70,11 +70,7 @@ export default function About() {
                   lineHeight: 1.8,
                 }}
               >
-                Na Clínica Naturalize, combinamos expertise odontológica com uma abordagem humana e
-                personalizada. Nosso objetivo é proporcionar tratamentos que elevem sua confiança e
-                qualidade de vida, seja em estética, ortodontia ou implantes. Aqui, cada sorriso
-                recebe atenção exclusiva, focada no seu conforto e no resultado natural que você
-                merece.
+                Na Naturalize Odontologia, clínica odontológica em São Carlos, unimos expertise em odontologia a uma abordagem humana e personalizada. Nosso objetivo é oferecer tratamentos odontológicos acessíveis que elevem sua confiança e qualidade de vida — seja em estética, ortodontia ou implantes. Cada sorriso recebe atenção exclusiva, focada no seu conforto e em resultados naturais que refletem a sua essência.
               </Typography>
             </motion.div>
           </Grid>
@@ -125,7 +121,7 @@ export default function About() {
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                 }}
               >
-                Naturalize — desperte o melhor do seu sorriso com confiança e naturalidade.
+                Naturalize — desperte o melhor do seu sorriso saudável com confiança e naturalidade.
               </Typography>
             </motion.div>
           </Grid>

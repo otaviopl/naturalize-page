@@ -50,12 +50,12 @@ export default function ClientHeroAnimation() {
             textShadow: '0 2px 4px rgba(0,0,0,0.1)',
           }}
         >
-          Na Naturalize, nosso compromisso vai muito além de cuidar do seu sorriso. Aqui, prezamos
-          pela sua segurança, seu conforto e, principalmente, por oferecer um preço justo. Cada
-          detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o
-          seu atendimento. Acreditamos que a odontologia pode (e deve) ser acessível, humana e de
-          alta qualidade. Na Naturalize, você encontra profissionais dedicados, tecnologia de ponta
-          e um ambiente feito para você se sentir em casa.
+          Na Naturalize Odontologia, clínica odontológica em São Carlos, nosso compromisso vai muito além de cuidar do seu sorriso saudável. 
+          Aqui, prezamos pela sua segurança, conforto e, principalmente, por oferecer odontologia acessível e preço justo. 
+          Cada detalhe é pensado para que você se sinta acolhido, tranquilo e confiante durante todo o seu atendimento.
+          Acreditamos que a odontologia pode (e deve) ser humana, de alta qualidade e acessível. 
+          Na Naturalize Odontologia, você contará com dentistas em São Carlos altamente capacitados, tecnologia de ponta e um ambiente feito para você se sentir em casa. 
+          Se você procura por tratamentos odontológicos a um preço justo, venha conhecer nossa clínica e sorrir com confiança!
         </Typography>
       </motion.div>
 
@@ -94,7 +94,7 @@ export default function ClientHeroAnimation() {
             variant="outlined"
             size="large"
             onClick={() => scrollToSection('servicos')}
-            aria-label="Conheça nossos tratamentos"
+            aria-label="Conheça nossos tratamentos odontológicos"
             sx={{
               fontWeight: 600,
               py: 1.5,
@@ -110,7 +110,7 @@ export default function ClientHeroAnimation() {
               },
             }}
           >
-            Conheça nossos tratamentos
+            Conheça nossos tratamentos odontológicos
           </Button>
         </Box>
       </motion.div>
