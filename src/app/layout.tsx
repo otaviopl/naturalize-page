@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Clínica Naturalize - Saúde e Bem-estar',
   description:
     'Viva sua beleza natural com mais confiança. Estética avançada, ortodontia moderna e implantes em São Carlos.',
+  icons: {
+    icon: [
+      { url: '/logo/naturalize-logo12.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/logo/naturalize-logo12.ico', sizes: '192x192', type: 'image/x-icon' },
+    ],
+    shortcut: '/logo/naturalize-logo12.ico',
+    apple: '/logo/naturalize-logo12.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
