@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Box, Card, CardContent, Container, Typography, Avatar } from '@mui/material';
+import { Box, Card, CardContent, Container, Typography, Avatar, Rating } from '@mui/material';
 import { Quote } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
@@ -16,16 +16,34 @@ const AnimatePresence = dynamic(() => import('framer-motion').then((mod) => mod.
 
 const testimonials = [
   {
-    name: 'Bel Valim',
+    name: 'Tania Souza',
     role: 'Paciente',
-    text: 'Eu [...] tive muitos problemas, meus dentes muito separados. Inclusive cheguei aparelho invisalign gastei um dinheirão com esse tratamento e continuei insatisfeita . Mas tomei coragem e procurei Dr Mayuri, e o resultado foi surpreendente. Nunca estive tão feliz com meus dentes, com meu sorriso. Obrigada a Naturalize ! ',
-    avatar: 'BV',
+    text: 'Tive uma otima experiência nesta clinica, um atendimento impecável, eles tiveram muito carinho e paciencia comigo, fiz varios procedimentos e o resultado foi simplesmente impecável, depois disso posso sorrir sem medo, auto estimar foi la em cima, indico de olhos fechados 🤩',
+    avatar: 'TS',
   },
   {
-    name: 'Fernanda Rezende',
+    name: 'Thiago Ferrari',
     role: 'Paciente',
-    text: 'Vocês são ótimos profissionais, fiquei muito satisfeita com o atendimento, minha mãe foi me recomendou e também levei minha filha.',
-    avatar: 'FR',
+    text: 'A Clínica Naturalize tem um atendimento espetacular, humanizado e de qualidade , sem contar na pontualidade. Tive uma excelente experiência super indico.',
+    avatar: 'TF',
+  },
+  {
+    name: 'Roman Sarkis',
+    role: 'Paciente',
+    text: 'Clínica excelente com uma equipe maravilhosa exceutando um trabalho com a maior perfeição. Parabéns',
+    avatar: 'RS',
+  },
+  {
+    name: 'Pedro Gabriel',
+    role: 'Paciente',
+    text: 'Otimos profissionais, agora estou sorrindo com mais segurança',
+    avatar: 'PG',
+  },
+  {
+    name: 'Andressa Virturino',
+    role: 'Paciente',
+    text: 'Ainda não realizei tratamento com a clínica, mas acompanho o trabalho da equipe e sei o quanto são profissionais, dedicados e comprometidos com a qualidade e o bem-estar dos pacientes. O ambiente é acolhedor e a reputação deles é excelente.',
+    avatar: 'AV',
   },
 ];
 
@@ -123,6 +141,13 @@ export default function Testimonials() {
                         <Typography variant="body2" color="text.secondary">
                           {testimonials[currentIndex].role}
                         </Typography>
+                        <Rating
+                          name="read-only"
+                          value={5}
+                          readOnly
+                          size="small"
+                          sx={{ color: 'secondary.main', mt: 0.5 }}
+                        />
                       </Box>
                       <Quote size={32} color="#d1b78f" style={{ marginLeft: 'auto' }} />
                     </Box>

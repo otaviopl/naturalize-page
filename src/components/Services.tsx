@@ -18,7 +18,7 @@ const serviceItems = [
     description:
       'Devolva a saúde e beleza do seu sorriso saudável com restaurações estéticas em resina. Tratamentos precisos, duráveis e praticamente invisíveis, realizados na Naturalize Odontologia por dentistas em São Carlos.',
     image: '/images/services/restauracao-main.jpeg',
-    btnName: 'Saiba mais',
+    btnName: 'Antes e depois',
   },
   {
     icon: <Stethoscope size={48} color="#d1b78f" />,
@@ -26,7 +26,7 @@ const serviceItems = [
     description:
       'Recupere dentes perdidos com implantes dentários de última geração em São Carlos. Mais segurança, conforto e estética para sorrir com confiança todos os dias.',
     image: '/images/services/implante-main.jpeg',
-    btnName: 'Consultar implantes',
+    btnName: 'Antes e depois',
   },
   {
     icon: <Activity size={48} color="#d1b78f" />,
@@ -65,7 +65,7 @@ export default function Services() {
             mb: { xs: 6, md: 8 },
           }}
         >
-          Tratamentos Odontológicos em São Carlos
+          Nossos Tratamentos
         </Typography>
 
         <Grid container spacing={6}>
