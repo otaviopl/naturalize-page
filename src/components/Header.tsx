@@ -15,7 +15,7 @@ export default function Header() {
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar disableGutters sx={{ py: 1 }}>
+        <Toolbar disableGutters sx={{ py: 1, minHeight: { xs: 70, sm: 90, md: 100 } }}>
           <Logo />
           <Box sx={{ flexGrow: 1 }} />
           <Button

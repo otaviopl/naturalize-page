@@ -27,6 +27,7 @@ export default function Hero() {
       sx={{
         position: 'relative',
         minHeight: '92vh',
+        paddingTop: { xs: '56px', md: '64px' },
         display: 'flex',
         alignItems: 'center',
         color: 'white',
