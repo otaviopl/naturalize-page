@@ -1,9 +1,12 @@
 'use client';
 
-import { AppBar, Box, Button, Container, Toolbar } from '@mui/material';
+import { AppBar, Box, Button, Container, Toolbar, useMediaQuery, useTheme, Typography } from '@mui/material';
 import Logo from './Logo';
+import { Calendar } from 'lucide-react';
 
 export default function Header() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <AppBar
       position="fixed"
@@ -26,14 +29,19 @@ export default function Header() {
             sx={{
               backgroundColor: 'secondary.main',
               color: 'primary.main',
-              px: 3,
+              minWidth: 'fit-content',
+              px: isMobile ? 1 : 3,
               '&:hover': {
                 backgroundColor: 'secondary.dark',
                 color: '#FFFFFF',
               },
             }}
+            aria-label="Agendar avaliação"
           >
-            Agendar avaliação
+            {isMobile
+              ? <Calendar size={26} style={{ margin: 0 }} />
+              : <Typography variant="button" component="span">Agendar avaliação</Typography>
+            }
           </Button>
         </Toolbar>
       </Container>
