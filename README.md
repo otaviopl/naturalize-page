@@ -125,6 +125,17 @@ npm run lint
 
 Acesse `http://localhost:3000` para visualizar o site.
 
+## Variáveis de ambiente
+
+Crie um arquivo `.env.local` na raiz do projeto com as configurações sensíveis. Para o Google Tag Manager utilize o valor já
+configurado como padrão:
+
+```bash
+NEXT_PUBLIC_GTM_ID=GTM-T6P9RL5D
+```
+
+Você também pode usar o arquivo `.env.example` como referência ao configurar novas variáveis.
+
 ## Formatação automática de código (Prettier + Husky)
 
 Este projeto utiliza [Prettier](https://prettier.io/) para formatação automática de código. Para garantir que todo o código siga o mesmo padrão, usamos [Husky](https://typicode.github.io/husky) e [lint-staged](https://github.com/okonet/lint-staged) para rodar o Prettier automaticamente antes de cada commit.
