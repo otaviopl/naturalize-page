@@ -4,6 +4,5 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["@next/eslint-plugin-next"],
   "rules": {}
 }
